@@ -1,57 +1,217 @@
-# De Anza MASA Website
+# 🇲🇾 🇸🇬 De Anza MASA — Official Website
 
-Official website for the **Malaysian & Singaporean Association (MASA)** at De Anza College in Cupertino, CA.
+> **Malaysian & Singaporean Association (MASA)** at De Anza College in Cupertino, California.  
+> *A home away from home — connecting students through Southeast Asian culture, authentic food, transfer mentorship, and lifelong community in Silicon Valley.*
+
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
+[![Affiliation](https://img.shields.io/badge/Affiliation-De%20Anza%20ICC-C1272D.svg)](https://www.deanza.edu/clubs/)
+[![Instagram](https://img.shields.io/badge/Instagram-@deanza.masa-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/deanza.masa/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
+
+---
+
+## 📌 Table of Contents
+- [About MASA](#-about-masa)
+- [Website Features](#-website-features)
+- [Tech Stack](#-tech-stack)
+- [Project Architecture](#-project-architecture)
+- [Getting Started & Local Development](#-getting-started--local-development)
+- [Content Management Guide](#-content-management-guide)
+  - [1. Updating Announcement Banner & Meeting Times](#1-updating-announcement-banner--meeting-times)
+  - [2. Adding & Managing Upcoming Events](#2-adding--managing-upcoming-events)
+  - [3. Updating Executive Board Members & Photos](#3-updating-executive-board-members--photos)
+  - [4. Updating Social & Discord Links](#4-updating-social--discord-links)
+- [Deployment Guide](#-deployment-guide)
+- [Contact & Community Links](#-contact--community-links)
+- [License & Disclaimer](#-license--disclaimer)
+
+---
+
+## 🌏 About MASA
+
+The **De Anza Malaysian & Singaporean Association (MASA)** is an official student-run club affiliated with De Anza College’s Inter-Club Council (ICC). We serve as a cultural bridge and support network for Malaysian, Singaporean, and all culturally curious students across the San Francisco Bay Area.
+
+Our community is **100% open to all students** regardless of heritage or background. Whether you're craving authentic Mamak food, looking for UC/CSU transfer advice, or making friends in college, you belong here.
+
+---
+
+## ✨ Website Features
+
+* **Warm Campus Editorial Aesthetic**: Premium, welcoming design with custom porcelain backgrounds, heritage crimson & amber accents, and clean typography (*Outfit*, *Plus Jakarta Sans*, and *Inter*).
+* **Meeting Announcement Ticker**: Top banner featuring real-time meeting dates and campus locations with an animated pulse indicator.
+* **Bento Grid Pillars**: Three core pillars showcasing *Culture & Food*, *Transfer Mentorship*, and *Student Advocacy*.
+* **Extensible Events Hub**: Friendly "Planning in Progress" empty state with a ready-to-use HTML card template for scheduling gatherings.
+* **Executive Board Directory**: Team profiles highlighting officer names, majors, bios, and role chips with avatar photo support.
+* **Interactive FAQ Accordion**: Expandable questions addressing membership dues, meeting details, and transfer guidance.
+* **3-Step "How to Join" Hub**: Direct onboarding guide with Discord and Instagram entry points.
+* **Asynchronous Contact Form**: Clean form submission powered by Formspree API with instant in-page success/error notifications.
+* **Mobile-Responsive Navigation**: Touch-friendly slide-out drawer menu with animated hamburger-to-X transitions.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Markup**: Semantic HTML5 (W3C compliant, accessibility-friendly ARIA attributes)
+* **Styling**: Vanilla CSS3 (Custom design system, CSS variables, Flexbox & CSS Grid, zero heavy UI frameworks)
+* **Scripting**: Vanilla JavaScript (Modern ES6+ Modules, native `IntersectionObserver`, custom hooks)
+* **Build Tool & Dev Server**: [Vite 6](https://vitejs.dev/) (Instant Hot Module Replacement & optimized asset bundling)
+* **Form API**: [Formspree](https://formspree.io/) (Serverless email routing)
 
 ---
 
 ## 📁 Project Architecture
 
-The codebase is organized into a modular front-end architecture for maintainability and scalability:
+The codebase follows a modular, industry-standard front-end structure for easy maintenance and scaling:
 
 ```text
-/src
-├── /assets                # Global styles, fonts, and images
-│   ├── /images            # Skyline, event, and community image assets
-│   └── /styles            # Design tokens, variables, responsive stylesheets
-├── /components            # Shared, reusable UI elements
-│   ├── FAQAccordion.js    # Interactive expandable FAQ item logic
-│   ├── Navbar.js          # Header scroll state, mobile drawer & burger menu
-│   └── StatsCounter.js    # Live member & event counter animation
-├── /hooks                 # Custom logic & reactive listeners
-│   ├── useIntersectionObserver.js  # Viewport visibility watcher
-│   └── useScroll.js       # Window scroll listener & threshold hook
-├── /pages                 # Individual view routing screens
-│   └── home.js            # Home page controller orchestrating components
-├── /services              # API integration and network requests
-│   └── contactService.js  # Formspree endpoint integration & status UI
-├── /utils                 # Helper functions
-│   ├── dom.js             # Element selector & event listener shortcuts
-│   └── formatters.js      # Animation easing & number/date formatters
-└── main.js                # Root application entry point
+/
+├── index.html                 # Main website entry point
+├── package.json               # Scripts (dev, build, preview) & devDependencies
+├── package-lock.json          # Dependency lockfile
+├── .gitignore                 # Excludes node_modules/ and dist/
+├── README.md                  # Project documentation
+│
+└── src/
+    ├── main.js                # Root application entry point
+    │
+    ├── assets/                # Static assets & stylesheets
+    │   ├── images/            # Skyline photos, event graphics, member avatars
+    │   └── styles/            # style.css (Design tokens, layout, responsive queries)
+    │
+    ├── components/            # Reusable UI component logic
+    │   ├── FAQAccordion.js    # Interactive FAQ item expand/collapse
+    │   ├── Navbar.js          # Sticky header scroll listener & mobile drawer
+    │   └── StatsCounter.js    # Live numerical counter animations
+    │
+    ├── hooks/                 # Custom reactive listeners & observers
+    │   ├── useIntersectionObserver.js  # Viewport entry trigger
+    │   └── useScroll.js       # Window scroll threshold hook
+    │
+    ├── pages/                 # Page controllers
+    │   └── home.js            # Home page orchestration & form listeners
+    │
+    ├── services/              # External APIs & network requests
+    │   └── contactService.js  # Asynchronous Formspree form submission
+    │
+    └── utils/                 # General helpers
+        ├── dom.js             # Element selector shortcuts ($, $$, on)
+        └── formatters.js      # Easing math (easeOutQuad) & date formatters
 ```
 
 ---
 
-## 🚀 Quick Start & Development
+## 🚀 Getting Started & Local Development
 
-### 1. Install Dependencies
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (version 18 or newer) installed.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/teosiangjun-png/MASA-website.git
+cd MASA-website
+```
+
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Start Local Development Server
-Starts a hot-reloading local web server via Vite:
+### 3. Start the Development Server
 ```bash
 npm run dev
 ```
+Open your browser to the local address displayed in your terminal (usually `http://localhost:5173`). Any edits will update in real time with instant HMR (Hot Module Replacement).
 
-### 3. Build for Production
-Creates a bundled and optimized production output in the `dist/` directory:
+### 4. Build for Production
 ```bash
 npm run build
 ```
+Creates an optimized, minified production build in the `dist/` directory ready for deployment.
 
-### 4. Preview Production Build
+### 5. Preview the Production Build
 ```bash
 npm run preview
 ```
+
+---
+
+## 📝 Content Management Guide
+
+All website text content lives directly inside [`index.html`](index.html). Here is how to make common updates:
+
+### 1. Updating Announcement Banner & Meeting Times
+* **Announcement Ticker**: Open `index.html` around line 18 (`.announcement-bar`) to edit the date, time, and room.
+* **Hero Feature Card**: Open `index.html` around line 215 (`.featured-event-card`) to update the featured gathering highlight.
+
+### 2. Adding & Managing Upcoming Events
+The Events section (`#events`) includes a commented-out template. When a new event is scheduled:
+1. Locate `index.html` around line 440.
+2. Uncomment the `.events-grid` block.
+3. Fill in the event title, category badge, date, time, location, and RSVP link:
+```html
+<div class="events-grid">
+  <div class="event-card">
+    <div class="event-card-header">
+      <span class="event-type-badge type-social">Social & Food</span>
+      <span class="event-date-chip">Oct 24</span>
+    </div>
+    <h3 class="event-card-title">Mamak Night & Board Games</h3>
+    <p class="event-card-desc">Join us for Roti Canai, Teh Tarik, and card games!</p>
+    <div class="event-card-meta">
+      <div class="meta-row"><span>📍</span> Fireside Room</div>
+      <div class="meta-row"><span>⏰</span> Thursday, 4:00 PM – 6:00 PM</div>
+    </div>
+    <a href="#contact" class="btn btn-secondary btn-sm w-full text-center">RSVP</a>
+  </div>
+</div>
+```
+
+### 3. Updating Executive Board Members & Photos
+* **Text**: Open `index.html` around line 470 (`#team`) to edit officer names, majors, and bios.
+* **Photos**:
+  1. Save your square photo (e.g. `president.jpg`) into `src/assets/images/`.
+  2. Replace the `.officer-avatar-fallback` `div` with:
+  ```html
+  <img src="src/assets/images/president.jpg" alt="President Name" style="width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:14px;" />
+  ```
+
+### 4. Updating Social & Discord Links
+* **Discord Server Link**: Replace `#join` or `#` with your actual invite link (e.g., `https://discord.gg/yourcode`) in `index.html` lines 82, 141, and 702.
+* **Instagram**: Link points to `https://www.instagram.com/deanza.masa/`.
+
+---
+
+## 🌐 Deployment Guide
+
+### Deploying to GitHub Pages
+1. Build the production files:
+   ```bash
+   npm run build
+   ```
+2. You can use standard GitHub Pages with GitHub Actions, or deploy the `dist/` directory directly using `gh-pages`:
+   ```bash
+   npx gh-pages -d dist
+   ```
+
+### Deploying to Vercel / Netlify
+1. Connect this repository to your Vercel or Netlify account.
+2. Set the build settings:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Deploy! Both platforms support automatic deploys on every `git push`.
+
+---
+
+## 🤝 Contact & Community Links
+
+* **📸 Instagram**: [@deanza.masa](https://www.instagram.com/deanza.masa/)
+* **🏛️ Campus Location**: De Anza College, 21250 Stevens Creek Blvd, Cupertino, CA 95014
+* **🏫 Club Affiliation**: De Anza Inter-Club Council (ICC)
+
+---
+
+## 📄 License & Disclaimer
+
+* **Disclaimer**: De Anza MASA is a recognized student club affiliated with De Anza College’s Inter-Club Council. The opinions, events, and statements on this website are organized by students and do not represent the Foothill-De Anza Community College District.
+* **License**: This project is open-source under the [MIT License](LICENSE).
