@@ -10,8 +10,14 @@
     />
 
     <!-- Open Graph / Social Meta Tags -->
-    <meta property="og:title" content="De Anza MASA | Malaysian & Singaporean Association" />
-    <meta property="og:description" content="Official website of the Malaysian and Singaporean Association (MASA) at De Anza College in Cupertino, CA." />
+    <meta
+      property="og:title"
+      content="De Anza MASA | Malaysian & Singaporean Association"
+    />
+    <meta
+      property="og:description"
+      content="Official website of the Malaysian and Singaporean Association (MASA) at De Anza College in Cupertino, CA."
+    />
     <meta property="og:image" content="/src/assets/images/masa-logo.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -31,6 +37,20 @@
     <link rel="stylesheet" href="src/assets/styles/style.css" />
   </head>
   <body>
+    <!-- ANNOUNCEMENT BANNER TEMPLATE (Uncomment below when scheduling meetings or urgent alerts) -->
+    <!--
+    <div class="announcement-bar">
+      <div class="announcement-content">
+        <span class="badge-pulse"></span>
+        <span class="announcement-text">
+          <strong>Next General Meeting:</strong> Alternate Thursdays @ 4:00 PM •
+          De Anza Fireside Room (Student Center)
+        </span>
+        <a href="#events" class="announcement-link">View Details &rarr;</a>
+      </div>
+    </div>
+    -->
+
     <!-- Header & Navigation -->
     <header id="mainHeader">
       <nav class="nav-container">
@@ -119,7 +139,9 @@
         <li><a href="#about" class="drawer-link">About Us</a></li>
         <li><a href="#pillars" class="drawer-link">What We Do</a></li>
         <li><a href="#events" class="drawer-link">Upcoming Events</a></li>
-        <li><a href="past-events.html" class="drawer-link">Past Events Archive</a></li>
+        <li>
+          <a href="past-events.html" class="drawer-link">Past Events Archive</a>
+        </li>
         <li><a href="#faq" class="drawer-link">FAQ</a></li>
         <li><a href="#contact" class="drawer-link">Contact Us</a></li>
       </ul>
@@ -183,7 +205,9 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  ></path>
                   <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                   <path d="M9 14l2 2 4-4"></path>
                 </svg>
@@ -540,7 +564,9 @@
               <span class="section-subheading">Memories & Archive</span>
               <h2 class="banner-title">Our Past Gatherings & Event Archive</h2>
               <p class="banner-desc">
-                We're creating a digital archive of our community memories, cultural celebrations, Mamak supper outings, and mentorship sessions. Explore the archive or submit your own event photos!
+                We're creating a digital archive of our community memories,
+                cultural celebrations, Mamak supper outings, and mentorship
+                sessions. Explore the archive or submit your own event photos!
               </p>
               <div class="banner-tags">
                 <span class="tag-chip">🍜 Mamak Suppers</span>
@@ -555,11 +581,17 @@
 
             <!-- Empty State Placeholder -->
             <div class="banner-preview-grid">
-              <div class="preview-mini-card" style="text-align: center; padding: 36px 24px;">
-                <div style="font-size: 2.5rem; margin-bottom: 12px;">📸</div>
+              <div
+                class="preview-mini-card"
+                style="text-align: center; padding: 36px 24px"
+              >
+                <div style="font-size: 2.5rem; margin-bottom: 12px">📸</div>
                 <span class="mini-card-badge">Archive in Progress</span>
                 <h4>Photo Recaps Coming Soon!</h4>
-                <p>We are currently compiling past event galleries and stories. Visit the archive page or follow our Instagram for highlights!</p>
+                <p>
+                  We are currently compiling past event galleries and stories.
+                  Visit the archive page or follow our Instagram for highlights!
+                </p>
               </div>
             </div>
           </div>
@@ -988,7 +1020,11 @@
     <script type="module" src="src/main.js"></script>
 
     <!-- Cloudflare Web Analytics -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1dde74f3e24d4e4b86129c95c4cbcaff"}'></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "1dde74f3e24d4e4b86129c95c4cbcaff"}'
+    ></script>
     <!-- End Cloudflare Web Analytics -->
   </body>
 </html>
