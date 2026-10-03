@@ -32,6 +32,8 @@ export function initNavbar() {
     burgerBtn?.classList.add('toggle');
     burgerBtn?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    
+    document.addEventListener('keydown', handleKeydown);
   };
 
   const closeDrawer = () => {
@@ -41,6 +43,34 @@ export function initNavbar() {
     burgerBtn?.classList.remove('toggle');
     burgerBtn?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    
+    document.removeEventListener('keydown', handleKeydown);
+    burgerBtn?.focus(); // Return focus to trigger
+  };
+
+  const handleKeydown = (e) => {
+    if (e.key === 'Escape') {
+      closeDrawer();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableElements = mobileDrawer.querySelectorAll('a[href], button:not([disabled])');
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
+
+      if (e.shiftKey) { // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else { // Tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
   };
 
   if (burgerBtn) {

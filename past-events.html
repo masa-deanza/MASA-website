@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Events & Community Archive | De Anza MASA</title>
+    <meta
+      name="description"
+      content="Browse past gatherings, cultural banquets, food crawls, transfer panels, and socials organized by the De Anza Malaysian & Singaporean Association."
+    />
+    <meta name="theme-color" content="#FAF8F5" />
+
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="Past Events & Community Archive | De Anza MASA" />
+    <meta property="og:description" content="Browse past gatherings, cultural banquets, food crawls, transfer panels, and socials organized by the De Anza Malaysian & Singaporean Association." />
+    <meta property="og:image" content="/src/assets/images/masa-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="src/assets/styles/style.css" />
+  </head>
+  <body>
+    <!-- HEADER / NAVIGATION -->
+    <header class="header" id="mainHeader">
+      <nav class="nav-container">
+        <!-- Brand / Identity -->
+        <a href="index.html" class="brand-link" aria-label="MASA Home">
+          <img
+            src="src/assets/images/masa-logo-transparent.png"
+            alt="De Anza MASA Official Crest"
+            class="brand-logo-img"
+            width="44"
+            height="44"
+          />
+          <div class="brand-meta">
+            <span class="brand-title">DE ANZA MASA</span>
+            <span class="brand-sub">Malaysian & Singaporean Assoc.</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#pillars" class="nav-link">Pillars</a></li>
+          <li><a href="index.html#events" class="nav-link">Events</a></li>
+          <li><a href="past-events.html" class="nav-link active">Past Events</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li class="nav-cta-item">
+            <a
+              href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-sm"
+              >Join Club</a
+            >
+          </li>
+        </ul>
+
+        <!-- Action Buttons & Hamburger -->
+        <div class="nav-actions">
+          <a
+            href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-header-cta"
+            >Join Us</a
+          >
+          <button
+            class="burger-menu"
+            id="burgerBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Overlay Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <div class="drawer-brand">
+          <img
+            src="src/assets/images/masa-logo-transparent.png"
+            alt="De Anza MASA Official Crest"
+            class="drawer-logo-img"
+            width="40"
+            height="40"
+          />
+          <div class="brand-meta">
+            <span class="brand-title">DE ANZA MASA</span>
+          </div>
+        </div>
+        <button
+          class="drawer-close"
+          id="drawerCloseBtn"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="index.html#home" class="drawer-link">Home</a></li>
+        <li><a href="index.html#about" class="drawer-link">About Us</a></li>
+        <li><a href="index.html#pillars" class="drawer-link">What We Do</a></li>
+        <li><a href="index.html#events" class="drawer-link">Upcoming Events</a></li>
+        <li><a href="past-events.html" class="drawer-link">Past Events Archive</a></li>
+        <li><a href="index.html#faq" class="drawer-link">FAQ</a></li>
+        <li><a href="index.html#contact" class="drawer-link">Contact Us</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a
+          href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary w-full"
+          >Join MASA (Member Form)</a
+        >
+        <a
+          href="https://www.instagram.com/deanza.masa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline w-full mt-3"
+          >Follow Instagram</a
+        >
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <main>
+      <!-- SUBPAGE HERO -->
+      <section class="subpage-hero">
+        <div class="container">
+          <div style="margin-bottom: 16px;">
+            <a href="index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 8px;">
+              <span>&larr;</span> Back to Home
+            </a>
+          </div>
+          <span class="section-subheading">Our Memories & History</span>
+          <h1>Past Events & Community Archive</h1>
+          <p>
+            A dedicated space celebrating our past campus gatherings, cultural banquets, food crawls, transfer panels, and game days.
+          </p>
+        </div>
+      </section>
+
+      <!-- ARCHIVE GRID / EMPTY TEMPLATE SECTION -->
+      <section class="section section-archive" style="padding-top: 0;">
+        <div class="container">
+          <!-- Empty State (No past events published yet) -->
+          <div class="events-empty-card">
+            <div class="empty-icon-wrap">
+              <span>📸</span>
+            </div>
+            <span class="empty-badge">Archive in Progress</span>
+            <h3 class="empty-title">Past Event Recaps Coming Soon!</h3>
+            <p class="empty-desc">
+              We are currently compiling photo albums, event highlight recaps, and stories from our past gatherings. Check back soon, or follow our Instagram to view recent event photos and community updates!
+            </p>
+            <div class="empty-actions">
+              <a
+                href="https://www.instagram.com/deanza.masa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary btn-sm"
+                >Follow Instagram @deanza.masa</a
+              >
+              <a
+                href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm"
+                >Join Club (Member Form)</a
+              >
+              <a href="index.html#contact" class="btn btn-outline btn-sm"
+                >Submit Event Photos / Ideas</a
+              >
+            </div>
+          </div>
+
+          <!-- ============================================================
+               PAST EVENT RECAP TEMPLATE (Uncomment and duplicate when adding past events):
+          <div class="archive-filters" style="margin-top: 40px;">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="cultural">Cultural & Food</button>
+            <button class="filter-btn" data-filter="academic">Academic & Transfer</button>
+            <button class="filter-btn" data-filter="social">Socials & Games</button>
+          </div>
+
+          <div class="archive-grid">
+            <article class="archive-card" data-category="cultural">
+              <div class="archive-card-thumb thumb-gradient-2">
+                <span class="archive-quarter-pill">Fall Quarter</span>
+                <span class="tag-chip" style="background: rgba(255,255,255,0.9); border: none;">🎉 Cultural Banquet</span>
+              </div>
+              <div class="archive-card-body">
+                <div>
+                  <h3 class="archive-card-title">Event Title Here</h3>
+                  <p class="archive-card-desc">
+                    Event description and recap highlighting activities, turnout, and favorite moments.
+                  </p>
+                </div>
+                <div class="archive-card-footer">
+                  <span>📍 Campus Center</span>
+                  <span>👥 50+ Attendees</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          ============================================================ -->
+
+          <!-- Bottom Idea Callout -->
+          <div class="join-banner" style="margin-top: 40px;">
+            <span class="join-badge">💡 Build With Us</span>
+            <h2 class="join-title">Have photos or an idea for our next event?</h2>
+            <p class="join-desc">
+              MASA is built by our members! Whether you have photos from past events or want to suggest our next outing, reach out to us.
+            </p>
+            <div class="join-actions">
+              <a
+                href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary btn-lg"
+                >Join MASA (Member Form)</a
+              >
+              <a href="index.html#contact" class="btn btn-outline btn-lg"
+                >Contact Officers / Send Idea</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img
+                src="src/assets/images/masa-logo-transparent.png"
+                alt="De Anza MASA Official Crest"
+                class="footer-logo-img"
+                width="48"
+                height="48"
+              />
+              <div class="brand-meta">
+                <span class="brand-title">DE ANZA MASA</span>
+                <span class="brand-sub"
+                  >Malaysian & Singaporean Association</span
+                >
+              </div>
+            </div>
+            <p class="footer-tagline">
+              Connecting Malaysian & Singaporean students across De Anza College
+              through cultural pride, food tradition, academic mentorship, and lifelong
+              friendship.
+            </p>
+          </div>
+
+          <div class="footer-nav">
+            <div class="f-col">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="index.html#about">About MASA</a></li>
+                <li><a href="index.html#pillars">Our Pillars</a></li>
+                <li><a href="index.html#events">Upcoming Events</a></li>
+                <li><a href="past-events.html">Past Events & Recaps</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div class="f-col">
+              <h4>Connect</h4>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.instagram.com/deanza.masa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Instagram (@deanza.masa)</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://forms.gle/ADzitQ6rxYsEAMWY8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Member Sign-Up Form</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.deanza.edu/clubs/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >De Anza ICC Directory</a
+                  >
+                </li>
+                <li><a href="index.html#contact">Contact Officers</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-middle">
+          <div class="disclaimer-card">
+            <p>
+              <strong>Disclaimer:</strong> De Anza MASA is a recognized student
+              club affiliated with De Anza College’s Inter-Club Council (ICC).
+              Views and activities expressed on this website are organized by
+              students and do not officially represent the Foothill-De Anza
+              Community College District.
+            </p>
+            <p class="mt-2">
+              <strong>Accessibility:</strong> MASA is committed to digital
+              accessibility for all students. If you encounter any barriers
+              while navigating this site, please let us know via our contact
+              form.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 De Anza Malaysian & Singaporean Association (MASA).
+            Crafted with care for our De Anza family.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

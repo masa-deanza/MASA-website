@@ -25,9 +25,9 @@ Our community is **100% open to everyone** — no Malaysian or Singaporean backg
 ## 🌐 What You'll Find on This Website
 
 * **📢 Meeting & Event Schedules**: Real-time announcements for bi-weekly general meetings, campus room locations, and quarterly social gatherings.
-* **👥 Executive Board Directory**: Meet the student officers leading MASA this academic year, their majors, their focus within the club, and how to connect with them.
+* **🎉 Past Events & Photo Archive**: A dedicated archive page showcasing past cultural banquets, Mamak supper crawls, transfer alumni panels, and socials.
 * **❓ Frequently Asked Questions (FAQ)**: Helpful answers covering club dues (it's 100% free!), meeting times, and how to get involved.
-* **🚀 How to Join**: Quick links to join our active Discord community, follow our Instagram, and attend your first gathering.
+* **🚀 How to Join**: Quick link to register via our [member Google Form](https://forms.gle/ADzitQ6rxYsEAMWY8), follow our Instagram, and attend your first gathering.
 * **📬 Get in Touch**: An easy-to-use message form to reach the officer team directly for collaborations, club inquiries, or general questions.
 
 ---
@@ -35,6 +35,6 @@ Our community is **100% open to everyone** — no Malaysian or Singaporean backg
 ## 📱 Connect With Us
 
 * **📸 Instagram**: [@deanza.masa](https://www.instagram.com/deanza.masa/)
-* **💬 Discord**: Join our active member server for daily conversations, study sessions, and live announcements.
+* **📋 Member Sign-Up**: [Google Form Registration](https://forms.gle/ADzitQ6rxYsEAMWY8) — enter your contact info to receive meeting reminders, event alerts, and club updates.
 * **📍 Location**: De Anza College, 21250 Stevens Creek Blvd, Cupertino, CA 95014
 * **🏛️ Affiliation**: Recognized student club affiliated with De Anza College’s Inter-Club Council (ICC).

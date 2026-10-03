@@ -1,0 +1,100 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .about-grid,
+  .bento-grid,
+  .events-grid,
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .past-events-banner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 30px;
+  }
+
+  .archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu,
+  .btn-header-cta {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .about-grid,
+  .bento-grid,
+  .events-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .past-events-banner {
+    padding: 28px 20px;
+  }
+
+  .banner-title {
+    font-size: 1.8rem;
+  }
+
+  .subpage-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .join-banner {
+    padding: 40px 20px;
+  }
+
+  .join-title {
+    font-size: 1.9rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

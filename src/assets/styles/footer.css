@@ -1,0 +1,92 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer,
+.footer {
+  background-color: var(--bg-surface-warm);
+  border-top: 1px solid var(--border-subtle);
+  padding: 70px 0 30px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  max-width: 380px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.footer-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 60px;
+}
+
+.f-col h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-headline);
+}
+
+.f-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.f-col a {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.f-col a:hover {
+  color: var(--primary-crimson);
+}
+
+.footer-middle {
+  border-top: 1px solid var(--border-subtle);
+  padding: 24px 0;
+}
+
+.disclaimer-card p {
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  line-height: 1.65;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: var(--text-subtle);
+}
