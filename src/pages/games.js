@@ -88,8 +88,13 @@ export function initGamesPage() {
 
   // --- Persistent Storage State ---
   let bankroll = parseInt(localStorage.getItem('masa_blackjack_bankroll'), 10);
-  if (isNaN(bankroll) || bankroll <= 0) {
+  if (isNaN(bankroll) || bankroll < 0) {
     bankroll = 1000;
+  }
+
+  let lastBet = parseInt(localStorage.getItem('masa_blackjack_last_bet'), 10);
+  if (isNaN(lastBet) || lastBet < 0) {
+    lastBet = 0;
   }
 
   let stats = {
@@ -112,6 +117,7 @@ export function initGamesPage() {
 
   function saveGameData() {
     localStorage.setItem('masa_blackjack_bankroll', bankroll.toString());
+    localStorage.setItem('masa_blackjack_last_bet', lastBet.toString());
     localStorage.setItem('masa_blackjack_stats', JSON.stringify(stats));
   }
 
@@ -120,7 +126,8 @@ export function initGamesPage() {
   let playerHand = [];
   let dealerHand = [];
   let currentBet = 0;
-  let gameState = 'betting'; // 'betting' | 'playerTurn' | 'dealerTurn' | 'gameOver'
+  let isDoubled = false;
+  let gameState = 'betting'; // 'betting' | 'dealing' | 'playerTurn' | 'dealerTurn'
 
   // --- DOM Elements ---
   const bankrollEl = $('#bankrollDisplay');
@@ -137,6 +144,7 @@ export function initGamesPage() {
   const standBtn = $('#btnStand');
   const doubleBtn = $('#btnDouble');
   const clearBetBtn = $('#btnClearBet');
+  const rebetBtn = $('#btnRebet');
   const doubleBetBtn = $('#btnDoubleBet');
   const allInBtn = $('#btnAllIn');
   const soundToggleBtn = $('#btnSoundToggle');
@@ -235,7 +243,7 @@ export function initGamesPage() {
   }
 
   function updateUI() {
-    // Update Bankroll & Bet
+    // 1. Bankroll & Current Bet Display
     if (bankrollEl) bankrollEl.textContent = `$${bankroll.toLocaleString()}`;
     if (betDisplayEl) betDisplayEl.textContent = `$${currentBet.toLocaleString()}`;
     if (betCircleEl) {
@@ -246,34 +254,60 @@ export function initGamesPage() {
       }
     }
 
-    // Update Chip Buttons
+    const isBetting = (gameState === 'betting');
+
+    // 2. Chip Buttons (only clickable in betting phase with sufficient bankroll)
     $$('.chip-btn').forEach(btn => {
       const chipVal = parseInt(btn.getAttribute('data-value'), 10);
-      btn.disabled = gameState !== 'betting' || bankroll < chipVal;
+      btn.disabled = !isBetting || bankroll < chipVal;
     });
 
-    if (clearBetBtn) clearBetBtn.disabled = gameState !== 'betting' || currentBet === 0;
-    if (doubleBetBtn) doubleBetBtn.disabled = gameState !== 'betting' || currentBet === 0 || bankroll < currentBet;
-    if (allInBtn) allInBtn.disabled = gameState !== 'betting' || bankroll === 0;
+    // 3. Bet Modifiers
+    if (clearBetBtn) {
+      clearBetBtn.disabled = !isBetting || currentBet === 0;
+    }
 
-    // Action buttons state
+    if (rebetBtn) {
+      const canRebet = isBetting && lastBet > 0 && (bankroll + currentBet) >= lastBet;
+      rebetBtn.disabled = !canRebet;
+      rebetBtn.textContent = lastBet > 0 ? `Rebet ($${lastBet.toLocaleString()})` : 'Rebet';
+    }
+
+    if (doubleBetBtn) {
+      doubleBetBtn.disabled = !isBetting || currentBet === 0 || bankroll < currentBet;
+    }
+
+    if (allInBtn) {
+      allInBtn.disabled = !isBetting || bankroll === 0;
+    }
+
+    // 4. Main Action Button (Deal / Rebet & Deal)
     if (dealBtn) {
-      dealBtn.disabled = gameState !== 'betting' || currentBet === 0;
-      if (gameState === 'gameOver') {
-        dealBtn.innerHTML = '<span>New Hand / Deal</span>';
-        dealBtn.disabled = currentBet === 0 && bankroll === 0;
+      if (!isBetting) {
+        dealBtn.disabled = true;
+        dealBtn.innerHTML = '<span>Deal Hand</span>';
+      } else if (currentBet > 0) {
+        dealBtn.disabled = false;
+        dealBtn.innerHTML = '<span>Deal Hand</span>';
+      } else if (lastBet > 0 && bankroll >= lastBet) {
+        // Quick 1-click Rebet & Deal
+        dealBtn.disabled = false;
+        dealBtn.innerHTML = `<span>Rebet & Deal ($${lastBet.toLocaleString()})</span>`;
       } else {
+        dealBtn.disabled = true;
         dealBtn.innerHTML = '<span>Deal Hand</span>';
       }
     }
 
-    if (hitBtn) hitBtn.disabled = gameState !== 'playerTurn';
-    if (standBtn) standBtn.disabled = gameState !== 'playerTurn';
+    // 5. In-Round Decision Buttons
+    const isPlayerTurn = (gameState === 'playerTurn');
+    if (hitBtn) hitBtn.disabled = !isPlayerTurn;
+    if (standBtn) standBtn.disabled = !isPlayerTurn;
     if (doubleBtn) {
-      doubleBtn.disabled = gameState !== 'playerTurn' || playerHand.length !== 2 || bankroll < currentBet;
+      doubleBtn.disabled = !isPlayerTurn || playerHand.length !== 2 || bankroll < currentBet;
     }
 
-    // Update Stats Display
+    // 6. Stats Display
     if (statHandsEl) statHandsEl.textContent = stats.played;
     if (statWonEl) statWonEl.textContent = stats.won;
     if (statLostEl) statLostEl.textContent = stats.lost;
@@ -311,6 +345,25 @@ export function initGamesPage() {
     saveGameData();
   }
 
+  function rebet() {
+    if (gameState !== 'betting' || lastBet <= 0) return;
+    if (bankroll + currentBet < lastBet) {
+      setStatus(`Not enough chips to rebet $${lastBet.toLocaleString()}!`, 'lose');
+      return;
+    }
+    // Return any existing wager back to bankroll
+    bankroll += currentBet;
+    currentBet = 0;
+
+    // Deduct and commit lastBet
+    bankroll -= lastBet;
+    currentBet = lastBet;
+    playChipSound();
+    updateUI();
+    saveGameData();
+    setStatus(`Rebet placed: $${currentBet.toLocaleString()}. Click Deal Hand to play!`);
+  }
+
   function doubleCurrentBet() {
     if (gameState !== 'betting' || currentBet === 0) return;
     if (bankroll >= currentBet) {
@@ -333,28 +386,34 @@ export function initGamesPage() {
 
   // --- Gameplay Actions ---
   function startDeal() {
+    if (gameState !== 'betting') return;
+
     if (currentBet === 0) {
-      setStatus('Please place your bet first!');
+      setStatus('Please place your chips on the table first!');
       return;
     }
 
+    isDoubled = false;
     deck = createDeck(4);
     playerHand = [];
     dealerHand = [];
-    gameState = 'playerTurn';
+    gameState = 'dealing';
+    updateUI();
 
     if (dealerCardsEl) dealerCardsEl.innerHTML = '';
     if (playerCardsEl) playerCardsEl.innerHTML = '';
     if (dealerScoreEl) dealerScoreEl.textContent = '0';
     if (playerScoreEl) playerScoreEl.textContent = '0';
 
-    // Deal alternating cards
+    setStatus('Dealing cards...');
+
+    // Deal 4 alternating cards
     playerHand.push(drawCard());
     dealerHand.push(drawCard());
     playerHand.push(drawCard());
     dealerHand.push(drawCard());
 
-    // Render cards
+    // Render cards sequentially with casino timing
     playerCardsEl.appendChild(renderCard(playerHand[0]));
     playCardSound();
 
@@ -371,7 +430,7 @@ export function initGamesPage() {
     }, 400);
 
     setTimeout(() => {
-      dealerCardsEl.appendChild(renderCard(dealerHand[1], true)); // Face down
+      dealerCardsEl.appendChild(renderCard(dealerHand[1], true)); // Face down hole card
       playCardSound();
 
       // Check for Natural Blackjacks
@@ -388,6 +447,7 @@ export function initGamesPage() {
           endRound('lose', 'Dealer has Blackjack. Dealer wins.');
         }
       } else {
+        gameState = 'playerTurn';
         setStatus('Your turn: Hit, Stand, or Double Down!');
         updateUI();
       }
@@ -417,9 +477,11 @@ export function initGamesPage() {
   function doubleDown() {
     if (gameState !== 'playerTurn' || playerHand.length !== 2 || bankroll < currentBet) return;
     
+    isDoubled = true;
     bankroll -= currentBet;
     currentBet *= 2;
     playChipSound();
+    saveGameData();
     updateUI();
 
     const card = drawCard();
@@ -451,6 +513,7 @@ export function initGamesPage() {
     gameState = 'dealerTurn';
     updateUI();
     revealHoleCard();
+    setStatus("Dealer's turn...");
 
     function dealerPlayLoop() {
       let dealerScore = calculateHandScore(dealerHand);
@@ -488,29 +551,28 @@ export function initGamesPage() {
   }
 
   function endRound(outcome, message) {
-    gameState = 'gameOver';
     stats.played += 1;
 
     if (outcome === 'blackjack') {
-      const payout = Math.floor(currentBet * 2.5); // 3:2 payout (original bet + 1.5x)
+      const payout = currentBet + Math.round(currentBet * 1.5); // 3:2 payout (bet returned + 1.5x)
       bankroll += payout;
       stats.won += 1;
       stats.streak += 1;
       setStatus(message, 'blackjack');
       playBlackjackSound();
     } else if (outcome === 'win') {
-      bankroll += currentBet * 2;
+      bankroll += currentBet * 2; // (bet returned + 1x)
       stats.won += 1;
       stats.streak += 1;
       setStatus(message, 'win');
       playWinSound();
     } else if (outcome === 'push') {
-      bankroll += currentBet; // return bet
+      bankroll += currentBet; // (bet returned)
       stats.pushed += 1;
       setStatus(message, 'push');
       playTone(440, 'sine', 0.15, 0.15);
     } else {
-      // lose or bust
+      // lose or bust: bet was already deducted when placed
       stats.lost += 1;
       stats.streak = 0;
       setStatus(message, 'lose');
@@ -521,19 +583,22 @@ export function initGamesPage() {
       stats.bestStreak = stats.streak;
     }
 
-    // Keep same bet for convenient rebet if affordable, otherwise reset
-    if (bankroll < currentBet) {
-      currentBet = 0;
-    }
+    // Save previous bet amount for Rebet feature (revert doubled bet to original base)
+    lastBet = isDoubled ? Math.floor(currentBet / 2) : currentBet;
+    currentBet = 0; // round bet is fully settled and cleared from felt
+    isDoubled = false;
+
+    // Immediately restore betting state so chips and rebet are active for the next hand
+    gameState = 'betting';
 
     saveGameData();
     updateUI();
 
     // Check if player is broke
-    if (bankroll === 0 && currentBet === 0) {
+    if (bankroll === 0) {
       setTimeout(() => {
-        setStatus('Out of chips! Click "Free Reload" to get $500 more.', 'lose');
-      }, 1200);
+        setStatus('Out of chips! Click "Free Reload ($500)" to keep playing.', 'lose');
+      }, 1000);
     }
   }
 
@@ -546,14 +611,25 @@ export function initGamesPage() {
   });
 
   clearBetBtn?.addEventListener('click', clearBet);
+  rebetBtn?.addEventListener('click', rebet);
   doubleBetBtn?.addEventListener('click', doubleCurrentBet);
   allInBtn?.addEventListener('click', allInBet);
 
   dealBtn?.addEventListener('click', () => {
-    if (gameState === 'gameOver') {
-      gameState = 'betting';
-      startDeal();
-    } else if (gameState === 'betting') {
+    if (gameState !== 'betting') return;
+    if (currentBet === 0) {
+      if (lastBet > 0 && bankroll >= lastBet) {
+        // Quick 1-click Rebet & Deal
+        bankroll -= lastBet;
+        currentBet = lastBet;
+        playChipSound();
+        saveGameData();
+        updateUI();
+        startDeal();
+      } else {
+        setStatus('Please place your chips on the table first!');
+      }
+    } else {
       startDeal();
     }
   });
@@ -568,7 +644,7 @@ export function initGamesPage() {
     saveGameData();
     updateUI();
     playWinSound();
-    setStatus('Added $500 in chips! Good luck!');
+    setStatus('Added $500 in chips! Place your bets and good luck!');
   });
 
   // Sound Toggle
@@ -595,16 +671,29 @@ export function initGamesPage() {
     }
     const key = e.key.toLowerCase();
     if (key === ' ' || key === 'enter') {
-      if (gameState === 'betting' || gameState === 'gameOver') {
+      if (gameState === 'betting') {
         e.preventDefault();
-        startDeal();
+        if (currentBet > 0) {
+          startDeal();
+        } else if (lastBet > 0 && bankroll >= lastBet) {
+          bankroll -= lastBet;
+          currentBet = lastBet;
+          playChipSound();
+          saveGameData();
+          updateUI();
+          startDeal();
+        }
       }
     } else if (key === 'h' && gameState === 'playerTurn') {
       hit();
     } else if (key === 's' && gameState === 'playerTurn') {
       stand();
-    } else if (key === 'd' && gameState === 'playerTurn' && !doubleBtn.disabled) {
+    } else if (key === 'd' && gameState === 'playerTurn' && !doubleBtn?.disabled) {
       doubleDown();
+    } else if (key === 'c' && gameState === 'betting' && currentBet > 0) {
+      clearBet();
+    } else if (key === 'r' && gameState === 'betting' && lastBet > 0 && bankroll >= lastBet) {
+      rebet();
     }
   });
 
