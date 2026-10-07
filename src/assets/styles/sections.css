@@ -294,6 +294,17 @@
   box-shadow: var(--shadow-sm);
 }
 
+.officer-avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--border-card);
+  display: block;
+}
+
 .avatar-red { background: linear-gradient(135deg, #C1272D, #E76F51); }
 .avatar-amber { background: linear-gradient(135deg, #F4A261, #E76F51); }
 .avatar-navy { background: linear-gradient(135deg, #1E293B, #334155); }

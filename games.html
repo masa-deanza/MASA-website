@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Past Events & Community Archive | De Anza MASA</title>
+    <title>Games Lounge & Blackjack 21 | De Anza MASA</title>
     <meta
       name="description"
-      content="Browse past gatherings, cultural banquets, food crawls, transfer panels, and socials organized by the De Anza Malaysian & Singaporean Association."
+      content="Play Blackjack 21 in the official De Anza Malaysian & Singaporean Association (MASA) games arcade. Test your card skills, track your stats, and enjoy casino gaming with free virtual chips!"
     />
     <meta name="theme-color" content="#FAF8F5" />
 
     <!-- Open Graph / Social Meta Tags -->
-    <meta property="og:title" content="Past Events & Community Archive | De Anza MASA" />
-    <meta property="og:description" content="Browse past gatherings, cultural banquets, food crawls, transfer panels, and socials organized by the De Anza Malaysian & Singaporean Association." />
+    <meta property="og:title" content="Games Lounge & Blackjack 21 | De Anza MASA" />
+    <meta
+      property="og:description"
+      content="Play Blackjack 21 in the De Anza MASA games room! Authentic casino rules, chip betting, and live stats."
+    />
     <meta property="og:image" content="/src/assets/images/masa-logo.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -58,8 +61,8 @@
           <li><a href="index.html#pillars" class="nav-link">Pillars</a></li>
           <li><a href="index.html#team" class="nav-link">Officers</a></li>
           <li><a href="index.html#events" class="nav-link">Events</a></li>
-          <li><a href="past-events.html" class="nav-link active">Past Events</a></li>
-          <li><a href="games.html" class="nav-link">Games 🎮</a></li>
+          <li><a href="past-events.html" class="nav-link">Past Events</a></li>
+          <li><a href="games.html" class="nav-link active">Games 🎮</a></li>
           <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
           <li class="nav-cta-item">
@@ -126,7 +129,7 @@
         <li><a href="index.html#team" class="drawer-link">Officers</a></li>
         <li><a href="index.html#events" class="drawer-link">Upcoming Events</a></li>
         <li><a href="past-events.html" class="drawer-link">Past Events Archive</a></li>
-        <li><a href="games.html" class="drawer-link">Games & Arcade 🎮</a></li>
+        <li><a href="games.html" class="drawer-link active">Games & Arcade 🎮</a></li>
         <li><a href="index.html#faq" class="drawer-link">FAQ</a></li>
         <li><a href="index.html#contact" class="drawer-link">Contact Us</a></li>
       </ul>
@@ -138,117 +141,178 @@
           class="btn btn-primary w-full"
           >Join MASA (Member Form)</a
         >
-        <a
-          href="https://www.instagram.com/deanza.masa/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-outline w-full mt-3"
-          >Follow Instagram</a
-        >
       </div>
     </div>
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
+    <!-- MAIN CONTENT -->
     <main>
-      <!-- SUBPAGE HERO -->
-      <section class="subpage-hero">
+      <!-- GAMES HERO -->
+      <section class="games-page-hero">
         <div class="container">
-          <div style="margin-bottom: 16px;">
-            <a href="index.html" class="btn btn-outline btn-sm" style="display: inline-flex; align-items: center; gap: 8px;">
-              <span>&larr;</span> Back to Home
-            </a>
+          <div class="games-badge-wrap">
+            <span>🎲 MASA Arcade & Gaming Lounge</span>
           </div>
-          <span class="section-subheading">Our Memories & History</span>
-          <h1>Past Events & Community Archive</h1>
-          <p>
-            A dedicated space celebrating our past campus gatherings, cultural banquets, food crawls, transfer panels, and game days.
+          <h1 class="games-title">Blackjack 21 Lounge</h1>
+          <p class="games-subtitle">
+            Welcome to the De Anza MASA card room! Place your bets, challenge the dealer,
+            and sharpen your 21 skills with free virtual chips.
           </p>
         </div>
       </section>
 
-      <!-- ARCHIVE GRID / EMPTY TEMPLATE SECTION -->
-      <section class="section section-archive" style="padding-top: 0;">
+      <!-- GAMES ARENA SECTION -->
+      <section class="games-section">
         <div class="container">
-          <!-- Empty State (No past events published yet) -->
-          <div class="events-empty-card">
-            <div class="empty-icon-wrap">
-              <span>📸</span>
+          <!-- Top Bar: Bankroll & Controls -->
+          <div class="game-top-bar">
+            <div class="bankroll-display">
+              <span class="bankroll-label">Chip Balance:</span>
+              <span class="bankroll-amount" id="bankrollDisplay">$1,000</span>
             </div>
-            <span class="empty-badge">Archive in Progress</span>
-            <h3 class="empty-title">Past Event Recaps Coming Soon!</h3>
-            <p class="empty-desc">
-              We are currently compiling photo albums, event highlight recaps, and stories from our past gatherings. Check back soon, or follow our Instagram to view recent event photos and community updates!
-            </p>
-            <div class="empty-actions">
-              <a
-                href="https://www.instagram.com/deanza.masa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Follow Instagram @deanza.masa</a
-              >
-              <a
-                href="https://forms.gle/ADzitQ6rxYsEAMWY8"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary btn-sm"
-                >Join Club (Member Form)</a
-              >
-              <a href="index.html#contact" class="btn btn-outline btn-sm"
-                >Submit Event Photos / Ideas</a
-              >
+
+            <div class="game-utility-actions">
+              <button class="btn-utility" id="btnReloadChips" title="Add $500 free chips">
+                <span>🔄 Free Reload ($500)</span>
+              </button>
+              <button class="btn-utility" id="btnSoundToggle" title="Toggle sound effects">
+                <span>🔊 Sound: ON</span>
+              </button>
             </div>
           </div>
 
-          <!-- ============================================================
-               PAST EVENT RECAP TEMPLATE (Uncomment and duplicate when adding past events):
-          <div class="archive-filters" style="margin-top: 40px;">
-            <button class="filter-btn active" data-filter="all">All Events</button>
-            <button class="filter-btn" data-filter="cultural">Cultural & Food</button>
-            <button class="filter-btn" data-filter="academic">Academic & Transfer</button>
-            <button class="filter-btn" data-filter="social">Socials & Games</button>
+          <!-- CASINO BLACKJACK TABLE -->
+          <div class="blackjack-table" id="blackjackTable">
+            <!-- Dealer Area -->
+            <div class="hand-container dealer-hand-area">
+              <div class="hand-header">
+                <span class="hand-title">Dealer</span>
+                <span class="score-badge" id="dealerScore">0</span>
+              </div>
+              <div class="cards-row" id="dealerCards">
+                <!-- Dealer cards injected via JS -->
+              </div>
+            </div>
+
+            <!-- Felt Watermark -->
+            <div class="table-watermark">
+              <span>★ DE ANZA MASA CASINO • BLACKJACK PAYS 3 TO 2 • DEALER STANDS ON 17 ★</span>
+            </div>
+
+            <!-- Status Banner -->
+            <div class="table-status-wrap">
+              <div class="table-status-message" id="tableStatusMessage">
+                Place your chips on the table and hit Deal to play!
+              </div>
+            </div>
+
+            <!-- Bet Circle -->
+            <div class="player-bet-zone">
+              <div class="bet-circle" id="betCircle">
+                <span class="bet-amount-text" id="currentBetDisplay">$0</span>
+                <span class="bet-label">Bet</span>
+              </div>
+            </div>
+
+            <!-- Player Area -->
+            <div class="hand-container player-hand-area">
+              <div class="cards-row" id="playerCards">
+                <!-- Player cards injected via JS -->
+              </div>
+              <div class="hand-header" style="margin-top: 12px; margin-bottom: 0;">
+                <span class="hand-title">Player Hand</span>
+                <span class="score-badge" id="playerScore">0</span>
+              </div>
+            </div>
           </div>
 
-          <div class="archive-grid">
-            <article class="archive-card" data-category="cultural">
-              <div class="archive-card-thumb thumb-gradient-2">
-                <span class="archive-quarter-pill">Fall Quarter</span>
-                <span class="tag-chip" style="background: rgba(255,255,255,0.9); border: none;">🎉 Cultural Banquet</span>
-              </div>
-              <div class="archive-card-body">
-                <div>
-                  <h3 class="archive-card-title">Event Title Here</h3>
-                  <p class="archive-card-desc">
-                    Event description and recap highlighting activities, turnout, and favorite moments.
-                  </p>
-                </div>
-                <div class="archive-card-footer">
-                  <span>📍 Campus Center</span>
-                  <span>👥 50+ Attendees</span>
-                </div>
-              </div>
-            </article>
-          </div>
-          ============================================================ -->
+          <!-- CONTROLS & CHIPS TRAY -->
+          <div class="game-controls-panel">
+            <!-- Chip Selector Tray -->
+            <div class="chips-tray">
+              <button class="chip-btn chip-10" data-value="10" title="Add $10">10</button>
+              <button class="chip-btn chip-25" data-value="25" title="Add $25">25</button>
+              <button class="chip-btn chip-50" data-value="50" title="Add $50">50</button>
+              <button class="chip-btn chip-100" data-value="100" title="Add $100">100</button>
+              <button class="chip-btn chip-500" data-value="500" title="Add $500">500</button>
+            </div>
 
-          <!-- Bottom Idea Callout -->
-          <div class="join-banner" style="margin-top: 40px;">
-            <span class="join-badge">💡 Build With Us</span>
-            <h2 class="join-title">Have photos or an idea for our next event?</h2>
-            <p class="join-desc">
-              MASA is built by our members! Whether you have photos from past events or want to suggest our next outing, reach out to us.
-            </p>
-            <div class="join-actions">
-              <a
-                href="https://forms.gle/ADzitQ6rxYsEAMWY8"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-lg"
-                >Join MASA (Member Form)</a
-              >
-              <a href="index.html#contact" class="btn btn-outline btn-lg"
-                >Contact Officers / Send Idea</a
-              >
+            <!-- Quick Bet Modifiers -->
+            <div class="bet-modifiers">
+              <button class="btn-modifier" id="btnClearBet">Clear Bet</button>
+              <button class="btn-modifier" id="btnDoubleBet">2X Bet</button>
+              <button class="btn-modifier" id="btnAllIn">All In!</button>
+            </div>
+
+            <!-- Main Gameplay Action Buttons -->
+            <div class="game-actions-row">
+              <button class="btn-game btn-deal" id="btnDeal" disabled>
+                <span>Deal Hand</span>
+              </button>
+              <button class="btn-game btn-hit" id="btnHit" disabled>
+                <span>Hit (+1)</span>
+              </button>
+              <button class="btn-game btn-stand" id="btnStand" disabled>
+                <span>Stand</span>
+              </button>
+              <button class="btn-game btn-double" id="btnDouble" disabled>
+                <span>Double Down</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- STATS & RULES OVERVIEW -->
+          <div class="games-info-grid">
+            <!-- Statistics Card -->
+            <div class="games-card">
+              <h3 class="games-card-title">📊 Your Table Records</h3>
+              <div class="stats-list">
+                <div class="stat-box">
+                  <div class="stat-value" id="statHands">0</div>
+                  <div class="stat-label">Hands Played</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="statWon">0</div>
+                  <div class="stat-label">Hands Won</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="statLost">0</div>
+                  <div class="stat-label">Hands Lost</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" id="statWinRate">0%</div>
+                  <div class="stat-label">Win Rate</div>
+                </div>
+                <div class="stat-box" style="grid-column: span 2;">
+                  <div class="stat-value" id="statStreak">0 (Best: 0)</div>
+                  <div class="stat-label">Win Streak</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blackjack Quick Rules -->
+            <div class="games-card">
+              <h3 class="games-card-title">📖 Rules & Shortcuts</h3>
+              <ul class="rules-list">
+                <li>
+                  <strong>Goal:</strong> Beat the dealer by getting card total closest to 21 without busting over.
+                </li>
+                <li>
+                  <strong>Card Values:</strong> 2–10 are face value; J, Q, K are 10; Aces are worth 1 or 11 automatically.
+                </li>
+                <li>
+                  <strong>Natural Blackjack:</strong> An Ace + 10-value card on initial deal pays <strong>3:2</strong>.
+                </li>
+                <li>
+                  <strong>Dealer Rules:</strong> Dealer must draw cards until their score is at least 17, then stand.
+                </li>
+                <li>
+                  <strong>Double Down:</strong> Double your bet on your first 2 cards to take exactly one more card.
+                </li>
+                <li>
+                  <strong>Keyboard Controls:</strong> Space/Enter = Deal, H = Hit, S = Stand, D = Double Down.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -270,9 +334,7 @@
               />
               <div class="brand-meta">
                 <span class="brand-title">DE ANZA MASA</span>
-                <span class="brand-sub"
-                  >Malaysian & Singaporean Association</span
-                >
+                <span class="brand-sub">Malaysian & Singaporean Association</span>
               </div>
             </div>
             <p class="footer-tagline">
@@ -291,6 +353,7 @@
                 <li><a href="index.html#team">Officers & Leadership</a></li>
                 <li><a href="index.html#events">Upcoming Events</a></li>
                 <li><a href="past-events.html">Past Events & Recaps</a></li>
+                <li><a href="games.html">Games & Arcade</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
               </ul>
             </div>
@@ -333,15 +396,8 @@
             <p>
               <strong>Disclaimer:</strong> De Anza MASA is a recognized student
               club affiliated with De Anza College’s Inter-Club Council (ICC).
-              Views and activities expressed on this website are organized by
-              students and do not officially represent the Foothill-De Anza
-              Community College District.
-            </p>
-            <p class="mt-2">
-              <strong>Accessibility:</strong> MASA is committed to digital
-              accessibility for all students. If you encounter any barriers
-              while navigating this site, please let us know via our contact
-              form.
+              The games lounge is created for recreational student entertainment using
+              free virtual chips with no real-world monetary value.
             </p>
           </div>
         </div>
@@ -362,3 +418,4 @@
     <!-- End Cloudflare Web Analytics -->
   </body>
 </html>
+

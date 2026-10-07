@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         pastEvents: resolve(__dirname, 'past-events.html'),
+        games: resolve(__dirname, 'games.html'),
       },
     },
   },

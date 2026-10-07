@@ -5,11 +5,14 @@
 
 import { initHomePage } from './pages/home.js';
 import { initPastEventsPage } from './pages/pastEvents.js';
+import { initGamesPage } from './pages/games.js';
 
 function bootstrap() {
   const path = window.location.pathname;
   if (path.includes('past-events') || path.includes('past-events.html')) {
     initPastEventsPage();
+  } else if (path.includes('games') || path.includes('games.html')) {
+    initGamesPage();
   } else {
     initHomePage();
   }
