@@ -254,7 +254,7 @@
 }
 
 .officer-card {
-  background-color: var(--bg-canvas);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -272,16 +272,18 @@
 }
 
 .officer-avatar-wrapper {
-  padding: 30px 20px 15px;
+  padding: 28px 20px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
+  width: 100%;
 }
 
 .officer-avatar-fallback {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -290,18 +292,25 @@
   font-weight: 800;
   font-size: 1.4rem;
   color: #FFFFFF;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   box-shadow: var(--shadow-sm);
 }
 
 .officer-avatar-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid var(--border-card);
+  width: 96px !important;
+  height: 96px !important;
+  max-width: 96px !important;
+  max-height: 96px !important;
+  min-width: 96px !important;
+  min-height: 96px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center 20%;
+  flex-shrink: 0;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 3px solid #FFFFFF;
+  outline: 2px solid var(--border-card);
   display: block;
 }
 
@@ -327,31 +336,34 @@
 }
 
 .officer-body {
-  padding: 0 20px 24px;
+  padding: 0 20px 20px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .officer-name {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #18181B !important;
   margin-bottom: 4px;
 }
 
 .officer-major {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 12px;
+  color: #4B5563 !important;
+  margin-bottom: 8px;
 }
 
 .officer-bio {
-  font-size: 0.84rem;
-  color: var(--text-body);
-  line-height: 1.55;
-  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: #27272A !important;
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
 .officer-links {
@@ -360,6 +372,8 @@
   gap: 12px;
   padding-top: 12px;
   border-top: 1px solid var(--border-subtle);
+  width: 100%;
+  margin-top: auto;
 }
 
 .officer-links a {
