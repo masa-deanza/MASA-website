@@ -238,6 +238,129 @@
 }
 
 /* ==========================================================================
+   EXECUTIVE TEAM / OFFICERS SECTION
+   ========================================================================== */
+
+.section-team {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.officer-card {
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.officer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: #D1C9BE;
+}
+
+.officer-avatar-wrapper {
+  padding: 30px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.officer-avatar-fallback {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.avatar-red { background: linear-gradient(135deg, #C1272D, #E76F51); }
+.avatar-amber { background: linear-gradient(135deg, #F4A261, #E76F51); }
+.avatar-navy { background: linear-gradient(135deg, #1E293B, #334155); }
+.avatar-emerald { background: linear-gradient(135deg, #059669, #10B981); }
+.avatar-purple { background: linear-gradient(135deg, #7C3AED, #8B5CF6); }
+.avatar-coral { background: linear-gradient(135deg, #F97316, #FB923C); }
+.avatar-gold { background: linear-gradient(135deg, #D97706, #F59E0B); }
+.avatar-teal { background: linear-gradient(135deg, #0D9488, #14B8A6); }
+
+.officer-role-pill {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--primary-crimson-subtle);
+  color: var(--primary-crimson);
+}
+
+.officer-body {
+  padding: 0 20px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.officer-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.officer-major {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.officer-bio {
+  font-size: 0.84rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.officer-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.officer-links a {
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.officer-links a:hover {
+  color: var(--primary-crimson);
+}
+
+/* ==========================================================================
    UPCOMING EVENTS SECTION
    ========================================================================== */
 

@@ -15,7 +15,8 @@
   .about-grid,
   .bento-grid,
   .events-grid,
-  .steps-grid {
+  .steps-grid,
+  .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .past-events-banner {
@@ -50,7 +51,8 @@
   .about-grid,
   .bento-grid,
   .events-grid,
-  .steps-grid {
+  .steps-grid,
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
