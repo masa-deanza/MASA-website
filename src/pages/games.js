@@ -249,8 +249,10 @@ export function initGamesPage() {
     if (betCircleEl) {
       if (currentBet > 0) {
         betCircleEl.classList.add('has-bet');
+        betCircleEl.setAttribute('title', 'Click to clear bet back to bankroll');
       } else {
         betCircleEl.classList.remove('has-bet');
+        betCircleEl.removeAttribute('title');
       }
     }
 
@@ -281,21 +283,19 @@ export function initGamesPage() {
       allInBtn.disabled = !isBetting || bankroll === 0;
     }
 
-    // 4. Main Action Button (Deal / Rebet & Deal)
+    // 4. Main Action Button (Deal)
+    // When chips are on table: Deal Hand ($X)
+    // When no chips on table: Place Bet to Deal (disabled)
     if (dealBtn) {
       if (!isBetting) {
         dealBtn.disabled = true;
         dealBtn.innerHTML = '<span>Deal Hand</span>';
       } else if (currentBet > 0) {
         dealBtn.disabled = false;
-        dealBtn.innerHTML = '<span>Deal Hand</span>';
-      } else if (lastBet > 0 && bankroll >= lastBet) {
-        // Quick 1-click Rebet & Deal
-        dealBtn.disabled = false;
-        dealBtn.innerHTML = `<span>Rebet & Deal ($${lastBet.toLocaleString()})</span>`;
+        dealBtn.innerHTML = `<span>Deal Hand ($${currentBet.toLocaleString()})</span>`;
       } else {
         dealBtn.disabled = true;
-        dealBtn.innerHTML = '<span>Deal Hand</span>';
+        dealBtn.innerHTML = '<span>Place Bet to Deal</span>';
       }
     }
 
@@ -333,6 +333,9 @@ export function initGamesPage() {
       playChipSound();
       updateUI();
       saveGameData();
+      setStatus(`Current Bet: $${currentBet.toLocaleString()}. Click Deal Hand when ready!`);
+    } else {
+      setStatus(`Not enough chips for +$${amount.toLocaleString()}! Your balance is $${bankroll.toLocaleString()}.`, 'lose');
     }
   }
 
@@ -343,6 +346,7 @@ export function initGamesPage() {
     playChipSound();
     updateUI();
     saveGameData();
+    setStatus('Bet cleared. Pick chips below or click Rebet to play!');
   }
 
   function rebet() {
@@ -355,7 +359,7 @@ export function initGamesPage() {
     bankroll += currentBet;
     currentBet = 0;
 
-    // Deduct and commit lastBet
+    // Deduct and commit lastBet onto table
     bankroll -= lastBet;
     currentBet = lastBet;
     playChipSound();
@@ -372,6 +376,9 @@ export function initGamesPage() {
       playChipSound();
       updateUI();
       saveGameData();
+      setStatus(`Bet doubled to $${currentBet.toLocaleString()}!`);
+    } else {
+      setStatus(`Not enough chips to double bet! Need $${currentBet.toLocaleString()} more.`, 'lose');
     }
   }
 
@@ -382,6 +389,7 @@ export function initGamesPage() {
     playChipSound();
     updateUI();
     saveGameData();
+    setStatus(`All in! Total bet: $${currentBet.toLocaleString()}! Good luck!`);
   }
 
   // --- Gameplay Actions ---
@@ -553,49 +561,68 @@ export function initGamesPage() {
   function endRound(outcome, message) {
     stats.played += 1;
 
+    const baseBet = isDoubled ? Math.floor(currentBet / 2) : currentBet;
+
     if (outcome === 'blackjack') {
-      const payout = currentBet + Math.round(currentBet * 1.5); // 3:2 payout (bet returned + 1.5x)
-      bankroll += payout;
+      // 3:2 payout on base wager (e.g. $50 bet -> +$75 profit)
+      const profit = Math.round(baseBet * 1.5);
+      bankroll += profit; // net profit added to bankroll
+      // Original base bet stays on felt for easy continuation or adjustment
+      currentBet = baseBet;
       stats.won += 1;
       stats.streak += 1;
-      setStatus(message, 'blackjack');
+      setStatus(`${message} (+$${profit.toLocaleString()} Profit) — Adjust bet or Deal!`, 'blackjack');
       playBlackjackSound();
     } else if (outcome === 'win') {
-      bankroll += currentBet * 2; // (bet returned + 1x)
+      // 1:1 payout on active wager (profit equals currentBet)
+      const profit = currentBet;
+      bankroll += profit; // net profit added to bankroll
+      // If it was a double down, return the extra doubled portion to bankroll so baseBet stays on table
+      if (isDoubled) {
+        bankroll += baseBet;
+      }
+      currentBet = baseBet;
       stats.won += 1;
       stats.streak += 1;
-      setStatus(message, 'win');
+      setStatus(`${message} (+$${profit.toLocaleString()} Profit) — Adjust bet or Deal!`, 'win');
       playWinSound();
     } else if (outcome === 'push') {
-      bankroll += currentBet; // (bet returned)
+      // Tie: 0 profit. Bet was not won or lost, stays on table!
+      if (isDoubled) {
+        bankroll += baseBet; // return extra doubled portion to bankroll
+      }
+      currentBet = baseBet;
       stats.pushed += 1;
-      setStatus(message, 'push');
+      setStatus(`${message} ($${baseBet.toLocaleString()} remains on table) — Adjust bet or Deal!`, 'push');
       playTone(440, 'sine', 0.15, 0.15);
     } else {
-      // lose or bust: bet was already deducted when placed
+      // Lose or bust: dealer took the chips from table
+      const lostAmount = currentBet;
       stats.lost += 1;
       stats.streak = 0;
-      setStatus(message, 'lose');
+      setStatus(`${message} (-$${lostAmount.toLocaleString()}) — Select chips or Rebet!`, 'lose');
       playBustSound();
+
+      // Wager was collected by dealer, reset currentBet to 0 so table is clean
+      currentBet = 0;
     }
 
     if (stats.streak > stats.bestStreak) {
       stats.bestStreak = stats.streak;
     }
 
-    // Save previous bet amount for Rebet feature (revert doubled bet to original base)
-    lastBet = isDoubled ? Math.floor(currentBet / 2) : currentBet;
-    currentBet = 0; // round bet is fully settled and cleared from felt
+    // Save previous base bet for the Rebet button
+    lastBet = baseBet;
     isDoubled = false;
 
-    // Immediately restore betting state so chips and rebet are active for the next hand
+    // Immediately return to betting state so Clear Bet, chips, Rebet, and 2X Bet are immediately accessible!
     gameState = 'betting';
 
     saveGameData();
     updateUI();
 
-    // Check if player is broke
-    if (bankroll === 0) {
+    // Check if player is completely out of chips
+    if (bankroll === 0 && currentBet === 0) {
       setTimeout(() => {
         setStatus('Out of chips! Click "Free Reload ($500)" to keep playing.', 'lose');
       }, 1000);
@@ -615,23 +642,20 @@ export function initGamesPage() {
   doubleBetBtn?.addEventListener('click', doubleCurrentBet);
   allInBtn?.addEventListener('click', allInBet);
 
+  // Clicking the bet circle also clears the bet back to bankroll
+  betCircleEl?.addEventListener('click', () => {
+    if (gameState === 'betting' && currentBet > 0) {
+      clearBet();
+    }
+  });
+
   dealBtn?.addEventListener('click', () => {
     if (gameState !== 'betting') return;
     if (currentBet === 0) {
-      if (lastBet > 0 && bankroll >= lastBet) {
-        // Quick 1-click Rebet & Deal
-        bankroll -= lastBet;
-        currentBet = lastBet;
-        playChipSound();
-        saveGameData();
-        updateUI();
-        startDeal();
-      } else {
-        setStatus('Please place your chips on the table first!');
-      }
-    } else {
-      startDeal();
+      setStatus('Please place chips on the table or click Rebet first!');
+      return;
     }
+    startDeal();
   });
 
   hitBtn?.addEventListener('click', hit);
@@ -676,11 +700,7 @@ export function initGamesPage() {
         if (currentBet > 0) {
           startDeal();
         } else if (lastBet > 0 && bankroll >= lastBet) {
-          bankroll -= lastBet;
-          currentBet = lastBet;
-          playChipSound();
-          saveGameData();
-          updateUI();
+          rebet();
           startDeal();
         }
       }
