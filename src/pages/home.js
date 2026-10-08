@@ -4,15 +4,15 @@
 
 import { $ } from '../utils/dom.js';
 import { initNavbar } from '../components/Navbar.js';
-import { initStatsCounter } from '../components/StatsCounter.js';
 import { initFAQAccordion } from '../components/FAQAccordion.js';
+import { initPhotoCarousel } from '../components/PhotoCarousel.js';
 import { submitContactMessage } from '../services/contactService.js';
 
 export function initHomePage() {
   // Initialize shared components on the Home view
   initNavbar();
-  initStatsCounter();
   initFAQAccordion();
+  initPhotoCarousel();
 
   // Contact form handling
   const contactForm = $('#contactForm');

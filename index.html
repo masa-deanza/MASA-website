@@ -18,9 +18,28 @@
       property="og:description"
       content="Official website of the Malaysian and Singaporean Association (MASA) at De Anza College in Cupertino, CA."
     />
-    <meta property="og:image" content="/src/assets/images/masa-logo.png" />
+    <meta
+      property="og:url"
+      content="https://masa-deanza.github.io/MASA-website/"
+    />
+    <meta
+      property="og:image"
+      content="https://masa-deanza.github.io/MASA-website/masa-logo.png"
+    />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="De Anza MASA | Malaysian & Singaporean Association"
+    />
+    <meta
+      name="twitter:description"
+      content="Official website of the Malaysian and Singaporean Association (MASA) at De Anza College in Cupertino, CA."
+    />
+    <meta
+      name="twitter:image"
+      content="https://masa-deanza.github.io/MASA-website/masa-logo.png"
+    />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,7 +73,11 @@
     <!-- Header & Navigation -->
     <header id="mainHeader">
       <nav class="nav-container">
-        <a href="#home" class="brand-logo" aria-label="De Anza MASA Home">
+        <a
+          href="#home"
+          class="brand-link brand-logo"
+          aria-label="De Anza MASA Home"
+        >
           <img
             src="src/assets/images/masa-logo-transparent.png"
             alt="De Anza MASA Official Crest"
@@ -72,11 +95,10 @@
         <ul class="nav-menu" id="navMenu">
           <li><a href="#home" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#pillars" class="nav-link">Pillars</a></li>
           <li><a href="#team" class="nav-link">Officers</a></li>
           <li><a href="#events" class="nav-link">Events</a></li>
           <li><a href="past-events.html" class="nav-link">Past Events</a></li>
-          <li><a href="games.html" class="nav-link">Games 🎮</a></li>
+          <li><a href="games.html" class="nav-link">Games</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
           <li class="nav-cta-item">
@@ -85,7 +107,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary btn-sm"
-              >Join Club</a
+              >Join MASA</a
             >
           </li>
         </ul>
@@ -97,7 +119,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary btn-header-cta"
-            >Join Us</a
+            >Join MASA</a
           >
           <button
             class="burger-menu"
@@ -139,14 +161,13 @@
       <ul class="drawer-links">
         <li><a href="#home" class="drawer-link">Home</a></li>
         <li><a href="#about" class="drawer-link">About Us</a></li>
-        <li><a href="#pillars" class="drawer-link">What We Do</a></li>
         <li><a href="#team" class="drawer-link">Officers</a></li>
         <li><a href="#events" class="drawer-link">Upcoming Events</a></li>
         <li>
           <a href="past-events.html" class="drawer-link">Past Events Archive</a>
         </li>
         <li>
-          <a href="games.html" class="drawer-link">Games & Arcade 🎮</a>
+          <a href="games.html" class="drawer-link">Games & Arcade</a>
         </li>
         <li><a href="#faq" class="drawer-link">FAQ</a></li>
         <li><a href="#contact" class="drawer-link">Contact Us</a></li>
@@ -157,7 +178,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-primary w-full"
-          >Join MASA (Member Form)</a
+          >Join MASA</a
         >
         <a
           href="https://www.instagram.com/deanza.masa/"
@@ -187,10 +208,8 @@
             </h1>
 
             <p class="hero-lead">
-              Uniting Malaysian, Singaporean, and all culturally curious
-              students at De Anza. We bring you authentic mamak food culture,
-              cultural celebrations, transfer mentorship, and a warm college
-              family.
+              (placeholder: We eat together, we transfer together. Malaysian and
+              Singaporean students at De Anza — everyone welcome.)
             </p>
 
             <div class="hero-cta-group">
@@ -217,7 +236,7 @@
                   <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                   <path d="M9 14l2 2 4-4"></path>
                 </svg>
-                <span>Join Us (Member Sign-Up)</span>
+                <span>Join MASA</span>
               </a>
               <a href="#events" class="btn btn-secondary btn-lg"
                 >Explore Events &rarr;</a
@@ -276,75 +295,140 @@
             </div>
           </div>
 
-          <!-- Hero Feature Card (Gathering Highlight) -->
+          <!-- Hero Photo Carousel -->
           <div class="hero-visual">
-            <div class="featured-event-card">
-              <div class="card-eyebrow">
-                <span class="badge-red">Upcoming Gatherings</span>
-                <span class="event-quarter">Quarter Schedule</span>
+            <div
+              class="hero-carousel"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="MASA Highlights & Community Moments"
+            >
+              <!-- Carousel Top Bar -->
+              <div class="carousel-top-bar">
+                <span class="badge-red">Life at MASA</span>
+                <span class="carousel-counter" aria-live="polite">
+                  <span id="carouselCurrent">1</span> /
+                  <span id="carouselTotal">2</span>
+                </span>
               </div>
-              <h3 class="event-title">Events Being Planned</h3>
-              <p class="event-desc">
-                We're currently planning our lineup of socials, Mamak nights,
-                and transfer workshops. Join our community to vote on event
-                ideas and get notified first!
-              </p>
-              <div class="event-meta-grid">
-                <div class="meta-item">
-                  <span class="meta-icon">📋</span>
-                  <div>
-                    <strong>Member Network</strong>
-                    <p>Meeting alerts & updates</p>
-                  </div>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-icon">📍</span>
-                  <div>
-                    <strong>De Anza Campus</strong>
-                    <p>Cupertino, CA</p>
-                  </div>
-                </div>
-              </div>
-              <div class="event-card-actions">
-                <a
-                  href="https://forms.gle/ADzitQ6rxYsEAMWY8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-primary btn-sm w-full text-center"
-                  >Sign Up via Google Form &rarr;</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- LIVE IMPACT COUNTER STRIP -->
-      <section class="stats-section">
-        <div class="container">
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-number">
-                <span class="counter" data-target="150">0</span>+
+              <!-- Carousel Photo Viewport -->
+              <div class="carousel-viewport">
+                <!-- Navigation Arrows -->
+                <button
+                  class="carousel-arrow prev"
+                  type="button"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button
+                  class="carousel-arrow next"
+                  type="button"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+
+                <!-- Slides Track -->
+                <div class="carousel-track">
+                  <!-- Slide 1: Welcome Day & Socials -->
+                  <div
+                    class="carousel-slide active"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label="1 of 2"
+                  >
+                    <div class="slide-media has-image">
+                      <img
+                        src="src/assets/images/carousel/masa-gathering-1.png"
+                        alt="MASA Welcome Day and Community Gathering"
+                        class="carousel-img"
+                        loading="eager"
+                        style="display: block; object-position: center 35%"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Evening Socials & Meetups -->
+                  <div
+                    class="carousel-slide"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label="2 of 2"
+                  >
+                    <div class="slide-media has-image">
+                      <img
+                        src="src/assets/images/carousel/masa-gathering-2.png"
+                        alt="MASA Members Evening Social and Meetup"
+                        class="carousel-img"
+                        loading="lazy"
+                        style="display: block; object-position: center 30%"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- ============================================================
+                       SLIDE TEMPLATE (Uncomment to add more slides):
+                  <div class="carousel-slide" role="group" aria-roledescription="slide">
+                    <div class="slide-media has-image">
+                      <img src="src/assets/images/carousel/photo.png" alt="Event" class="carousel-img" loading="lazy" style="display: block;" />
+                    </div>
+                  </div>
+                  ============================================================ -->
+                </div>
               </div>
-              <p class="stat-label">Active Members & Allies</p>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card">
-              <div class="stat-number">
-                <span class="counter" data-target="20">0</span>+
+
+              <!-- Carousel Footer with Dots & Link -->
+              <div class="carousel-footer">
+                <div
+                  class="carousel-dots"
+                  role="tablist"
+                  aria-label="Carousel navigation"
+                >
+                  <button
+                    class="carousel-dot active"
+                    type="button"
+                    role="tab"
+                    aria-label="Go to slide 1"
+                    aria-selected="true"
+                    data-slide="0"
+                  ></button>
+                  <button
+                    class="carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Go to slide 2"
+                    aria-selected="false"
+                    data-slide="1"
+                  ></button>
+                </div>
+                <a href="past-events.html" class="carousel-footer-link">
+                  Past Events &rarr;
+                </a>
               </div>
-              <p class="stat-label">Annual Events & Gatherings</p>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card">
-              <div class="stat-number">2 Nations</div>
-              <p class="stat-label">One Tight-Knit Family</p>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card">
-              <div class="stat-number">100%</div>
-              <p class="stat-label">Welcoming to Everyone</p>
             </div>
           </div>
         </div>
@@ -354,124 +438,37 @@
       <section id="about" class="section section-about">
         <div class="container">
           <div class="section-intro">
-            <span class="section-subheading">Who We Are</span>
-            <h2 class="section-heading">
-              A Bridge of Culture, Friendship & Ambition
-            </h2>
+            <h2 class="section-heading">About De Anza MASA</h2>
             <p class="section-summary">
-              The De Anza Malaysian & Singaporean Association is a student-led
-              organization established to provide community, cultural
-              celebration, and holistic collegiate support for students in the
-              South Bay.
+              (placeholder: Student-led organization at De Anza College
+              connecting Malaysian, Singaporean, and all interested students
+              through food, culture, and transfer mentorship.)
             </p>
           </div>
 
           <div class="about-grid">
             <div class="about-card culture-notice">
-              <div class="notice-icon">🌏</div>
               <h3>Open to Everyone!!</h3>
               <p>
-                Whether you were born in Malaysia or Singapore, grew up in
-                California, or have never visited Southeast Asia but love
-                Hainanese Chicken Rice, Laksa, and good conversation —
-                <strong>you are warmly welcomed into MASA.</strong>
+                Born in Malaysia, Singapore, or California, it doesn’t matter.
+                If you like good food and good conversation, come hang out.
               </p>
             </div>
 
             <div class="about-card">
-              <div class="notice-icon">🍲</div>
-              <h3>Authentic Food & Mamak Culture</h3>
+              <h3>Transfer Mentorship</h3>
               <p>
-                Food is at the heart of our community. From local Bay Area
-                Malaysian food crawls to casual potlucks and group dinners, we
-                bring everyone together over the comforting flavors of home.
+                We help each other with our transfer goals and give advice to
+                new members.
               </p>
             </div>
 
             <div class="about-card">
-              <div class="notice-icon">🎓</div>
-              <h3>Transfer & Career Success</h3>
+              <h3>Socials & Gatherings</h3>
               <p>
-                Navigating the transfer process doesn't have to be done alone.
-                We act as a supportive community where members uplift one
-                another, share advice, and help each other stay on track toward
-                our academic goals every step of the way.
+                We host meal gatherings, potlucks and celebrate festivals from
+                both Malaysia and the States.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- BENTO GRID PILLARS -->
-      <section id="pillars" class="section section-pillars">
-        <div class="container">
-          <div class="section-intro">
-            <span class="section-subheading">Our Core Pillars</span>
-            <h2 class="section-heading">How We Empower Our Members</h2>
-            <p class="section-summary">
-              Our mission rests on three pillars designed to enrich your
-              community college journey culturally, academically, and socially.
-            </p>
-          </div>
-
-          <div class="bento-grid">
-            <!-- Pillar 1 -->
-            <div class="bento-card bento-culture">
-              <div class="bento-badge">Pillar 01</div>
-              <div class="bento-icon-wrapper">
-                <span class="bento-emoji">🏮</span>
-              </div>
-              <h3 class="bento-title">Culture & Festive Lifestyle</h3>
-              <p class="bento-text">
-                As cultural ambassadors on the De Anza campus, we celebrate our
-                shared heritage with pride. We host Merdeka & National Day
-                banquets, Lunar New Year festivities, Hari Raya open houses, and
-                Deepavali celebrations.
-              </p>
-              <ul class="bento-list">
-                <li>Cultural festival banquets with traditional dishes</li>
-                <li>Bay Area food crawls & late-night Mamak hangs</li>
-                <li>Annual Inter-Collegiate MASA sports & social mixers</li>
-              </ul>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="bento-card bento-career">
-              <div class="bento-badge">Pillar 02</div>
-              <div class="bento-icon-wrapper">
-                <span class="bento-emoji">🚀</span>
-              </div>
-              <h3 class="bento-title">Transfer & Career Mentorship</h3>
-              <p class="bento-text">
-                From figuring out class schedules to hitting application
-                deadlines, our members are always ready to help. We lean on each
-                other’s experiences to make the transfer process less stressful.
-              </p>
-              <ul class="bento-list">
-                <li>Friendly feedback on PIQs and application materials</li>
-                <li>Advice on balancing heavy courseloads and prerequisites</li>
-                <li>Insight and practical advice from transfer alumni</li>
-              </ul>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="bento-card bento-advocacy">
-              <div class="bento-badge">Pillar 03</div>
-              <div class="bento-icon-wrapper">
-                <span class="bento-emoji">🤝</span>
-              </div>
-              <h3 class="bento-title">Advocacy & Student Support</h3>
-              <p class="bento-text">
-                We vow to be the voice for international and local students
-                alike in De Anza's Inter-Club Council (ICC). We assist with
-                international student adaptation, housing tips, and mental
-                well-being support.
-              </p>
-              <ul class="bento-list">
-                <li>Representation at De Anza Inter-Club Council (ICC)</li>
-                <li>International student onboarding and visa Q&A sessions</li>
-                <li>Study clusters and peer review for midterms and finals</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -481,11 +478,10 @@
       <section id="team" class="section section-team">
         <div class="container">
           <div class="section-intro">
-            <span class="section-subheading">Leadership</span>
             <h2 class="section-heading">Meet Our Executive Board</h2>
             <p class="section-summary">
-              Get to know the dedicated students leading the De Anza Malaysian &
-              Singaporean Association this year.
+              (placeholder: The student team organizing meetings, events, and
+              mentorship for De Anza MASA.)
             </p>
           </div>
 
@@ -499,34 +495,26 @@
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">President</span>
               </div>
               <div class="officer-body">
                 <h3 class="officer-name">Wei Jin</h3>
-                <p class="officer-major">Engineering Physics / Applied Physics</p>
+                <p class="officer-major">
+                  Engineering Physics / Applied Physics
+                </p>
                 <p class="officer-bio">From Ipoh, Malaysia</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -539,7 +527,16 @@
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">Vice President</span>
@@ -548,25 +545,6 @@
                 <h3 class="officer-name">Rachel</h3>
                 <p class="officer-major">Neuroscience and Statistics</p>
                 <p class="officer-bio">From Singapore</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -575,38 +553,30 @@
               <div class="officer-avatar-wrapper">
                 <img
                   src="src/assets/images/officers/prince-of-sabah.jpeg"
-                  alt="King of Sabah - Secretary"
+                  alt="Kingston - Secretary"
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">Secretary</span>
               </div>
               <div class="officer-body">
-                <h3 class="officer-name">King of Sabah</h3>
-                <p class="officer-major">Electrical Engineering and Computer Science</p>
+                <h3 class="officer-name">Kingston</h3>
+                <p class="officer-major">
+                  Electrical Engineering and Computer Science
+                </p>
                 <p class="officer-bio">From Sabah. Prince of Sabah</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -619,7 +589,16 @@
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">Treasurer</span>
@@ -628,69 +607,10 @@
                 <h3 class="officer-name">Rayson</h3>
                 <p class="officer-major">Economics</p>
                 <p class="officer-bio">From Johor Bahru</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
 
-            <!-- Officer 5: ICC Representative -->
-            <div class="officer-card">
-              <div class="officer-avatar-wrapper">
-                <img
-                  src="src/assets/images/officers/sj.jpeg"
-                  alt="SJ - ICC Representative"
-                  class="officer-avatar-img"
-                  width="96"
-                  height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
-                  loading="lazy"
-                />
-                <span class="officer-role-pill">ICC Representative</span>
-              </div>
-              <div class="officer-body">
-                <h3 class="officer-name">SJ</h3>
-                <p class="officer-major">Electrical Engineering</p>
-                <p class="officer-bio">From Penang</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Officer 6: Event Coordinator -->
+            <!-- Officer 5: Event Coordinator -->
             <div class="officer-card">
               <div class="officer-avatar-wrapper">
                 <img
@@ -699,34 +619,54 @@
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">Event Coordinator</span>
               </div>
               <div class="officer-body">
-                <h3 class="officer-name">Zehou</h3>
+                <h3 class="officer-name">Ze Hou</h3>
                 <p class="officer-major">Economics</p>
                 <p class="officer-bio">From Kuala Lumpur</p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
+              </div>
+            </div>
+
+            <!-- Officer 6: ICC Representative -->
+            <div class="officer-card">
+              <div class="officer-avatar-wrapper">
+                <img
+                  src="src/assets/images/officers/sj.jpeg"
+                  alt="SJ - ICC Representative"
+                  class="officer-avatar-img"
+                  width="96"
+                  height="96"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
+                  loading="lazy"
+                />
+                <span class="officer-role-pill">ICC Representative</span>
+              </div>
+              <div class="officer-body">
+                <h3 class="officer-name">Siang Jun</h3>
+                <p class="officer-major">Electrical Engineering</p>
+                <p class="officer-bio">From Penang</p>
               </div>
             </div>
 
@@ -739,7 +679,16 @@
                   class="officer-avatar-img"
                   width="96"
                   height="96"
-                  style="width: 96px; height: 96px; max-width: 96px; max-height: 96px; border-radius: 50%; object-fit: cover; object-position: center 20%; display: block;"
+                  style="
+                    width: 96px;
+                    height: 96px;
+                    max-width: 96px;
+                    max-height: 96px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center 20%;
+                    display: block;
+                  "
                   loading="lazy"
                 />
                 <span class="officer-role-pill">Public Relations</span>
@@ -747,29 +696,7 @@
               <div class="officer-body">
                 <h3 class="officer-name">Gin</h3>
                 <p class="officer-major">Design & Marketing</p>
-                <p class="officer-bio">
-                  Leading MASA's social media presence, event photography,
-                  visual storytelling, and graphics.
-                </p>
-                <div class="officer-links">
-                  <a
-                    href="https://www.instagram.com/deanza.masa/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                      />
-                    </svg>
-                  </a>
-                </div>
+                <p class="officer-bio">From Penang</p>
               </div>
             </div>
           </div>
@@ -780,46 +707,43 @@
       <section id="events" class="section section-events">
         <div class="container">
           <div class="section-intro">
-            <span class="section-subheading">Mark Your Calendars</span>
-            <h2 class="section-heading">Upcoming Activities & Gatherings</h2>
-            <p class="section-summary">
-              Stay tuned for our upcoming social mixers, cultural festival
-              celebrations, and transfer panels!
-            </p>
+            <h2 class="section-heading">Upcoming Events</h2>
           </div>
 
-          <!-- Empty State (No events scheduled yet) -->
-          <div class="events-empty-card">
-            <div class="empty-icon-wrap">
-              <span>🗓️</span>
-            </div>
-            <span class="empty-badge">Planning in Progress</span>
-            <h3 class="empty-title">Exciting Gatherings Coming Soon!</h3>
-            <p class="empty-desc">
-              We're currently finalizing dates, campus locations, and food menus
-              for our upcoming socials, Mamak nights, and workshops. Sign up as
-              a member or follow our Instagram to be the first to know when the
-              schedule drops!
-            </p>
-            <div class="empty-actions">
-              <a
-                href="https://forms.gle/ADzitQ6rxYsEAMWY8"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-sm"
-                >Member Sign-Up Form</a
-              >
+          <div
+            class="events-notice-container"
+            style="
+              text-align: center;
+              max-width: 600px;
+              margin: 32px auto 0;
+              padding: 24px;
+              background: var(--bg-surface);
+              border: 1px solid var(--border-card);
+              border-radius: var(--radius-md);
+            "
+          >
+            <p
+              style="
+                margin: 0;
+                font-size: 1.05rem;
+                line-height: 1.6;
+                color: var(--text-body);
+              "
+            >
+              (placeholder: No upcoming events scheduled right now. Check
               <a
                 href="https://www.instagram.com/deanza.masa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-secondary btn-sm"
-                >Follow Instagram @deanza.masa</a
+                style="
+                  color: var(--primary-crimson);
+                  text-decoration: underline;
+                  font-weight: 600;
+                "
+                >@deanza.masa</a
               >
-              <a href="#contact" class="btn btn-outline btn-sm"
-                >Suggest an Event Idea</a
-              >
-            </div>
+              on Instagram for our next meeting and food run announcements.)
+            </p>
           </div>
 
           <!-- ============================================================
@@ -836,11 +760,9 @@
               </p>
               <div class="event-card-meta">
                 <div class="meta-row">
-                  <span class="meta-symbol">📍</span>
                   <span>Location (e.g. Fireside Room)</span>
                 </div>
                 <div class="meta-row">
-                  <span class="meta-symbol">⏰</span>
                   <span>Time (e.g. Thursday, 4:00 PM – 6:00 PM)</span>
                 </div>
               </div>
@@ -848,58 +770,6 @@
             </div>
           </div>
           ============================================================ -->
-
-          <div class="events-note">
-            <p>
-              💡
-              <em
-                >Have an idea for a workshop, food outing, or game tournament?
-                Message us on Instagram or send us a message below!</em
-              >
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAST EVENTS TEASER SECTION -->
-      <section id="past-events" class="section section-past-events">
-        <div class="container">
-          <div class="past-events-banner">
-            <div class="banner-content">
-              <span class="section-subheading">Memories & Archive</span>
-              <h2 class="banner-title">Our Past Gatherings & Event Archive</h2>
-              <p class="banner-desc">
-                We're creating a digital archive of our community memories,
-                cultural celebrations, Mamak supper outings, and mentorship
-                sessions. Explore the archive or submit your own event photos!
-              </p>
-              <div class="banner-tags">
-                <span class="tag-chip">🍜 Mamak Suppers</span>
-                <span class="tag-chip">🎉 Cultural Festivals</span>
-                <span class="tag-chip">🎓 Transfer Mentorship</span>
-                <span class="tag-chip">🎮 Game Nights</span>
-              </div>
-              <a href="past-events.html" class="btn btn-primary">
-                Explore Past Events Archive &rarr;
-              </a>
-            </div>
-
-            <!-- Empty State Placeholder -->
-            <div class="banner-preview-grid">
-              <div
-                class="preview-mini-card"
-                style="text-align: center; padding: 36px 24px"
-              >
-                <div style="font-size: 2.5rem; margin-bottom: 12px">📸</div>
-                <span class="mini-card-badge">Archive in Progress</span>
-                <h4>Photo Recaps Coming Soon!</h4>
-                <p>
-                  We are currently compiling past event galleries and stories.
-                  Visit the archive page or follow our Instagram for highlights!
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -907,7 +777,6 @@
       <section id="faq" class="section section-faq">
         <div class="container">
           <div class="section-intro">
-            <span class="section-subheading">Got Questions?</span>
             <h2 class="section-heading">Frequently Asked Questions</h2>
             <p class="section-summary">
               Everything you need to know about joining and participating in De
@@ -1017,7 +886,6 @@
         <div class="container">
           <div class="join-banner">
             <div class="join-content">
-              <span class="join-eyebrow">Ready to get involved?</span>
               <h2 class="join-title">Join MASA in 3 Simple Steps</h2>
               <p class="join-subtitle">
                 Jump in today — our community is always excited to welcome new
@@ -1037,7 +905,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn btn-primary btn-sm mt-3"
-                    >Sign Up via Google Form &rarr;</a
+                    >Join MASA &rarr;</a
                   >
                 </div>
 
@@ -1078,7 +946,6 @@
       <section id="contact" class="section section-contact">
         <div class="container">
           <div class="section-intro">
-            <span class="section-subheading">Reach Out</span>
             <h2 class="section-heading">Get in Touch With Us</h2>
             <p class="section-summary">
               Have a question, collaboration inquiry, or want to say hi? Send us
@@ -1097,7 +964,23 @@
 
                 <div class="contact-items">
                   <div class="c-item">
-                    <span class="c-icon">📍</span>
+                    <svg
+                      class="c-icon"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
                     <div>
                       <strong>Location</strong>
                       <p>
@@ -1108,7 +991,31 @@
                   </div>
 
                   <div class="c-item">
-                    <span class="c-icon">📸</span>
+                    <svg
+                      class="c-icon"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="2"
+                        y="2"
+                        width="20"
+                        height="20"
+                        rx="5"
+                        ry="5"
+                      ></rect>
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      ></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
                     <div>
                       <strong>Instagram</strong>
                       <p>
@@ -1123,7 +1030,31 @@
                   </div>
 
                   <div class="c-item">
-                    <span class="c-icon">📋</span>
+                    <svg
+                      class="c-icon"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                      ></path>
+                      <rect
+                        x="8"
+                        y="2"
+                        width="8"
+                        height="4"
+                        rx="1"
+                        ry="1"
+                      ></rect>
+                      <path d="M9 14l2 2 4-4"></path>
+                    </svg>
                     <div>
                       <strong>Member Sign-Up</strong>
                       <p>
@@ -1131,14 +1062,29 @@
                           href="https://forms.gle/ADzitQ6rxYsEAMWY8"
                           target="_blank"
                           rel="noopener noreferrer"
-                          >Register via Google Form</a
+                          >Join MASA (Google Form)</a
                         >
                       </p>
                     </div>
                   </div>
 
                   <div class="c-item">
-                    <span class="c-icon">🏛️</span>
+                    <svg
+                      class="c-icon"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"
+                      ></path>
+                    </svg>
                     <div>
                       <strong>Affiliation</strong>
                       <p>De Anza Inter-Club Council (ICC)</p>
@@ -1246,7 +1192,7 @@
             </div>
             <p class="footer-tagline">
               The Malaysian & Singaporean Association at De Anza College.
-              Fostering culture, community, and leadership since inception.
+              Cupertino, California.
             </p>
           </div>
 
@@ -1255,10 +1201,10 @@
               <h4>Quick Links</h4>
               <ul>
                 <li><a href="#about">About MASA</a></li>
-                <li><a href="#pillars">Our Pillars</a></li>
                 <li><a href="#team">Officers & Leadership</a></li>
                 <li><a href="#events">Upcoming Events</a></li>
                 <li><a href="past-events.html">Past Events & Recaps</a></li>
+                <li><a href="games.html">Games & Arcade</a></li>
                 <li><a href="#faq">FAQ</a></li>
               </ul>
             </div>
@@ -1279,7 +1225,7 @@
                     href="https://forms.gle/ADzitQ6rxYsEAMWY8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Member Sign-Up Form</a
+                    >Join MASA</a
                   >
                 </li>
                 <li>
@@ -1315,10 +1261,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>
-            &copy; 2026 De Anza Malaysian & Singaporean Association (MASA).
-            Crafted with care for our De Anza family.
-          </p>
+          <p>&copy; 2026 De Anza Malaysian & Singaporean Association (MASA).</p>
         </div>
       </div>
     </footer>

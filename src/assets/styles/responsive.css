@@ -99,4 +99,80 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 410px;
+    margin: 0 auto;
+  }
+
+  .hero-carousel {
+    max-width: 100%;
+    padding: 14px 16px;
+    margin: 0 auto;
+  }
+
+  .carousel-viewport {
+    height: 180px;
+  }
+
+  .carousel-captions {
+    min-height: 40px;
+    margin-top: 8px;
+  }
+
+  .slide-title {
+    font-size: 0.95rem;
+  }
+
+  .slide-desc {
+    font-size: 0.78rem;
+  }
+
+  .carousel-arrow {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-carousel {
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .carousel-viewport {
+    height: 160px;
+  }
+
+  .placeholder-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .placeholder-icon-wrap svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .placeholder-label {
+    font-size: 0.82rem;
+  }
+
+  .placeholder-tag {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+  }
+
+  .slide-title {
+    font-size: 0.9rem;
+  }
+
+  .slide-desc {
+    font-size: 0.75rem;
+  }
+
+  .carousel-counter {
+    font-size: 0.72rem;
+  }
 }

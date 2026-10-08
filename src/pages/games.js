@@ -690,7 +690,7 @@ export function initGamesPage() {
 
   // Keyboard Shortcuts
   document.addEventListener('keydown', (e) => {
-    if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+    if (document.activeElement && ['INPUT', 'TEXTAREA', 'BUTTON'].includes(document.activeElement.tagName)) {
       return;
     }
     const key = e.key.toLowerCase();

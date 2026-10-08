@@ -30,7 +30,7 @@
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 .games-subtitle {

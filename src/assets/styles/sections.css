@@ -787,6 +787,9 @@
 .c-icon {
   font-size: 1.35rem;
   line-height: 1;
+  color: var(--primary-crimson);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .c-item strong {
