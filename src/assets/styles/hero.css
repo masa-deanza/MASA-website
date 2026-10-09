@@ -10,6 +10,21 @@
               radial-gradient(circle at 10% 80%, rgba(193, 39, 45, 0.08) 0%, transparent 40%);
 }
 
+.hero-background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 100%;
+  background-image: url('../images/peranakan-pattern.svg');
+  background-repeat: repeat-y;
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-container {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -188,23 +203,72 @@
    HERO PHOTO CAROUSEL (COMPACT & BALANCED)
    ========================================================================== */
 
+/* ==========================================================================
+   HERO VISUAL & CULTURAL ARCH BACKDROP
+   ========================================================================== */
+
 .hero-visual {
   min-width: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-visual-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 480px;
+  padding-bottom: 8px;
+}
+
+/* Petronas Twin Towers & Marina Bay Sands Arch Backdrop */
+.hero-skyline-backdrop {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 880px;
+  max-width: none;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  transition: transform var(--transition-base), filter var(--transition-base);
+}
+
+.hero-visual-wrapper:hover .hero-skyline-backdrop {
+  transform: translateX(-50%) translateY(-5px) scale(1.015);
+}
+
+.hero-skyline-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: drop-shadow(0 14px 28px rgba(184, 134, 72, 0.16));
 }
 
 .hero-carousel {
   width: 100%;
-  max-width: 410px;
+  max-width: 385px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 16px 18px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 16px 36px rgba(24, 24, 27, 0.12), 0 3px 10px rgba(24, 24, 27, 0.05);
   position: relative;
+  z-index: 2;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   display: flex;
   flex-direction: column;
@@ -212,8 +276,8 @@
 }
 
 .hero-carousel:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 42px rgba(24, 24, 27, 0.16), 0 4px 12px rgba(24, 24, 27, 0.06);
 }
 
 .carousel-top-bar {

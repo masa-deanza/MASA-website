@@ -7,6 +7,15 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .hero-visual-wrapper {
+    min-height: 440px;
+    margin: 10px auto 0;
+  }
+
+  .hero-skyline-backdrop {
+    width: 780px;
+  }
   
   .hero-title {
     font-size: 2.8rem;
@@ -46,6 +55,19 @@
 
   .hero-title {
     font-size: 2.2rem;
+  }
+
+  .hero-visual-wrapper {
+    min-height: 400px;
+    padding: 0 0 6px;
+  }
+
+  .hero-skyline-backdrop {
+    width: 680px;
+  }
+
+  .hero-carousel {
+    max-width: 340px;
   }
 
   .about-grid,
@@ -136,6 +158,15 @@
 }
 
 @media screen and (max-width: 480px) {
+  .hero-visual-wrapper {
+    min-height: 350px;
+    padding: 0 0 5px;
+  }
+
+  .hero-skyline-backdrop {
+    width: 580px;
+  }
+
   .hero-carousel {
     padding: 12px 14px;
     border-radius: var(--radius-md);

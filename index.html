@@ -204,7 +204,7 @@
 
             <h1 class="hero-title">
               Your Home Away From Home in
-              <span class="highlight-text">Silicon Valley</span>.
+              <span class="highlight-text">Silicon Valley</span>
             </h1>
 
             <p class="hero-lead">
@@ -295,14 +295,27 @@
             </div>
           </div>
 
-          <!-- Hero Photo Carousel -->
+          <!-- Hero Photo Carousel & Cultural Skyline Backdrop -->
           <div class="hero-visual">
-            <div
-              class="hero-carousel"
-              role="region"
-              aria-roledescription="carousel"
-              aria-label="MASA Highlights & Community Moments"
-            >
+            <div class="hero-visual-wrapper">
+              <!-- Architectural Skyline Arch (Petronas Twin Towers & Marina Bay Sands) -->
+              <div class="hero-skyline-backdrop" aria-hidden="true">
+                <img
+                  src="src/assets/images/klcc-singapore-skyline-arch.png"
+                  alt="Petronas Twin Towers and Marina Bay Sands architectural backdrop"
+                  class="hero-skyline-img"
+                  width="2352"
+                  height="1184"
+                  loading="eager"
+                />
+              </div>
+
+              <div
+                class="hero-carousel"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="MASA Highlights & Community Moments"
+              >
               <!-- Carousel Top Bar -->
               <div class="carousel-top-bar">
                 <span class="badge-red">Life at MASA</span>
@@ -432,7 +445,8 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <!-- ABOUT SECTION -->
       <section id="about" class="section section-about">
