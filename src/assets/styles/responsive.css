@@ -8,9 +8,24 @@
     gap: 40px;
   }
 
+  .hero-content {
+    padding-left: 0;
+  }
+
   .hero-visual-wrapper {
     max-width: 520px;
     margin: 0 auto;
+    justify-self: center;
+  }
+
+  .hero-skyline-backdrop {
+    width: 880px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .hero-carousel {
+    max-width: 340px;
   }
   
   .hero-title {
@@ -56,15 +71,17 @@
   .hero-visual-wrapper {
     max-width: 100%;
     padding: 20px 0 10px;
+    justify-self: center;
   }
 
   .hero-skyline-backdrop {
-    width: 130%;
-    max-width: 480px;
+    width: 780px;
+    left: 50%;
+    top: 50%;
   }
 
   .hero-carousel {
-    max-width: 340px;
+    max-width: 330px;
   }
 
   .about-grid,
@@ -126,7 +143,7 @@
   }
 
   .hero-carousel {
-    max-width: 100%;
+    max-width: 330px;
     padding: 14px 16px;
     margin: 0 auto;
   }
@@ -156,11 +173,13 @@
 
 @media screen and (max-width: 480px) {
   .hero-skyline-backdrop {
-    width: 135%;
-    max-width: 390px;
+    width: 620px;
+    left: 50%;
+    top: 50%;
   }
 
   .hero-carousel {
+    max-width: 290px;
     padding: 12px 14px;
     border-radius: var(--radius-md);
   }

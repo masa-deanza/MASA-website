@@ -27,9 +27,15 @@
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
 }
 
 .hero-tag {
@@ -83,7 +89,7 @@
   color: var(--text-body);
   line-height: 1.7;
   margin-bottom: 32px;
-  max-width: 580px;
+  max-width: 480px;
 }
 
 .hero-cta-group {
@@ -96,12 +102,18 @@
 
 .hero-trust {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-muted);
+}
+
+.hero-trust-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .trust-badge {
@@ -220,21 +232,22 @@
 .hero-visual-wrapper {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 540px;
+  justify-self: end;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px 10px 15px;
 }
 
-/* Petronas Twin Towers & Marina Bay Sands Arch Backdrop */
+/* Petronas Twin Towers & Marina Bay Sands Backdrop (Soft Horizon) */
 .hero-skyline-backdrop {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 56%;
   transform: translate(-50%, -50%);
-  width: 125%;
-  max-width: 630px;
+  width: 980px;
+  max-width: none;
   pointer-events: none;
   z-index: 1;
   display: flex;
@@ -244,7 +257,7 @@
 }
 
 .hero-visual-wrapper:hover .hero-skyline-backdrop {
-  transform: translate(-50%, -52%) scale(1.015);
+  transform: translate(-50%, -50%) scale(1.012);
 }
 
 .hero-skyline-img {
@@ -257,12 +270,12 @@
   image-rendering: high-quality;
   transform: translateZ(0);
   backface-visibility: hidden;
-  filter: drop-shadow(0 14px 28px rgba(184, 134, 72, 0.16));
 }
 
 .hero-carousel {
   width: 100%;
-  max-width: 385px;
+  max-width: 360px;
+  margin-top: 15px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
