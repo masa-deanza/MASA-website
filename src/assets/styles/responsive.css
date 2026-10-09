@@ -9,12 +9,8 @@
   }
 
   .hero-visual-wrapper {
-    min-height: 440px;
-    margin: 10px auto 0;
-  }
-
-  .hero-skyline-backdrop {
-    width: 780px;
+    max-width: 520px;
+    margin: 0 auto;
   }
   
   .hero-title {
@@ -58,12 +54,13 @@
   }
 
   .hero-visual-wrapper {
-    min-height: 400px;
-    padding: 0 0 6px;
+    max-width: 100%;
+    padding: 20px 0 10px;
   }
 
   .hero-skyline-backdrop {
-    width: 680px;
+    width: 130%;
+    max-width: 480px;
   }
 
   .hero-carousel {
@@ -158,13 +155,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .hero-visual-wrapper {
-    min-height: 350px;
-    padding: 0 0 5px;
-  }
-
   .hero-skyline-backdrop {
-    width: 580px;
+    width: 135%;
+    max-width: 390px;
   }
 
   .hero-carousel {

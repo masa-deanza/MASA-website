@@ -220,30 +220,31 @@
 .hero-visual-wrapper {
   position: relative;
   width: 100%;
+  max-width: 580px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  min-height: 480px;
-  padding-bottom: 8px;
+  align-items: center;
+  padding: 30px 10px 15px;
 }
 
 /* Petronas Twin Towers & Marina Bay Sands Arch Backdrop */
 .hero-skyline-backdrop {
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 880px;
-  max-width: none;
+  transform: translate(-50%, -50%);
+  width: 125%;
+  max-width: 630px;
   pointer-events: none;
   z-index: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   transition: transform var(--transition-base), filter var(--transition-base);
 }
 
 .hero-visual-wrapper:hover .hero-skyline-backdrop {
-  transform: translateX(-50%) translateY(-5px) scale(1.015);
+  transform: translate(-50%, -52%) scale(1.015);
 }
 
 .hero-skyline-img {
