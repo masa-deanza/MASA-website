@@ -1,0 +1,534 @@
+/* ==========================================================================
+   MALAYSIA INTERACTIVE OFFICER MAP
+   De Anza MASA — map.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Wide container (overrides .container for the map section)
+   -------------------------------------------------------------------------- */
+.container-wide {
+  width: 96%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Section wrapper
+   -------------------------------------------------------------------------- */
+.section-team-map {
+  background-color: var(--bg-canvas);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 80px 0 70px;
+}
+
+/* --------------------------------------------------------------------------
+   Map canvas — relative-positioned so officer cards can be absolute inside
+   -------------------------------------------------------------------------- */
+.map-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 640;
+  min-height: 540px;
+  margin-top: 36px;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   SVG map
+   -------------------------------------------------------------------------- */
+.map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Neighbour countries (Thailand, Kalimantan)
+   Greyed-out for geographic context — not interactive
+   -------------------------------------------------------------------------- */
+.map-neighbour {
+  fill: #E0DDD9;
+  stroke: #E0DDD9;
+  stroke-width: 0.5;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Malaysian + Singaporean state polygons
+   -------------------------------------------------------------------------- */
+.map-state {
+  fill: #F4ECE1;
+  stroke: #C8BFB3;
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              stroke 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-state:hover {
+  fill: #EBE0D4;
+}
+
+.map-state--active {
+  fill: var(--primary-crimson, #C1272D);
+  stroke: #9E1B21;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 8px rgba(193, 39, 45, 0.35));
+}
+
+/* Singapore — slightly thicker default stroke so it's visible at small size */
+.map-state--sg {
+  stroke-width: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Geographic region text labels (Thailand, Sarawak, Indonesian Kalimantan)
+   -------------------------------------------------------------------------- */
+.map-geo-label {
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  fill: #8E8880;
+  pointer-events: none;
+  user-select: none;
+}
+
+.map-geo-label--neighbour {
+  font-size: 12px;
+  fill: #A09A92;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Leader lines (SVG <path> connecting pin → card anchor point)
+   -------------------------------------------------------------------------- */
+.map-leader-line {
+  fill: none;
+  stroke: var(--primary-crimson, #C1272D);
+  stroke-width: 1.8;
+  opacity: 0.75;
+  pointer-events: none;
+  transition: opacity 0.22s ease, stroke-width 0.22s ease;
+}
+
+.map-leader-line--active {
+  stroke-width: 2.8;
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Hometown pin markers & text labels
+   -------------------------------------------------------------------------- */
+.map-pin {
+  fill: var(--primary-crimson, #C1272D);
+  stroke: #FFFFFF;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 2px 5px rgba(193, 39, 45, 0.3));
+  cursor: pointer;
+  transition: transform 0.22s ease, stroke-width 0.22s ease, filter 0.22s ease;
+  pointer-events: visibleFill;
+}
+
+.map-pin-dot {
+  fill: #FFFFFF;
+  pointer-events: none;
+}
+
+.map-pin--active {
+  stroke-width: 3.5;
+  filter: drop-shadow(0 0 8px rgba(193, 39, 45, 0.6));
+}
+
+.map-pin-label {
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  fill: #4A4641;
+  pointer-events: none;
+  letter-spacing: 0.2px;
+}
+
+.map-pin-label--right {
+  text-anchor: end;
+}
+
+/* --------------------------------------------------------------------------
+   Floating officer cards (absolutely positioned on the canvas)
+   -------------------------------------------------------------------------- */
+.map-officer-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface, #FFFFFF);
+  border: 1.5px solid var(--border-card, #E4DDD3);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 4px 18px rgba(24, 24, 27, 0.08);
+  padding: 13px 18px;
+  min-width: 245px;
+  max-width: 285px;
+  cursor: pointer;
+  z-index: 10;
+  transition: border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              min-width 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.22s ease,
+              filter 0.22s ease;
+}
+
+.map-officer-card:hover,
+.map-officer-card:focus-visible {
+  outline: none;
+  border-color: var(--primary-crimson, #C1272D);
+}
+
+.map-officer-card--active {
+  border-color: var(--primary-crimson, #C1272D);
+  box-shadow: 0 8px 26px rgba(193, 39, 45, 0.22);
+  transform: translateY(-3px);
+}
+
+/* Card main content row (avatar + info) */
+.map-officer-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Officer avatar inside card */
+.map-officer-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  flex-shrink: 0;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  outline: 1.5px solid var(--border-card, #E4DDD3);
+  transition: width 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+              outline-color 0.22s ease,
+              box-shadow 0.24s ease;
+}
+
+.map-officer-card--active .map-officer-avatar {
+  outline-color: var(--primary-crimson, #C1272D);
+}
+
+/* Text info block */
+.map-officer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.map-officer-info .officer-role-pill {
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill, 999px);
+  background-color: var(--primary-crimson, #C1272D);
+  color: #FFFFFF;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.map-officer-info .officer-name {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--text-headline, #18181B);
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map-officer-hometown {
+  font-size: 0.86rem;
+  color: var(--text-muted, #71717A);
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Elements hidden in collapsed state */
+.map-officer-close,
+.map-officer-major,
+.map-officer-bio {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   EXPANDED CARD STATE (.map-officer-card--expanded)
+   Enlarges the photo prominently (180px), reveals major and bio, adds close button
+   -------------------------------------------------------------------------- */
+.map-officer-card--expanded {
+  z-index: 120 !important;
+  width: 340px;
+  min-width: 340px;
+  max-width: 355px;
+  padding: 24px 22px 20px;
+  border-color: var(--primary-crimson, #C1272D);
+  box-shadow: 0 20px 50px rgba(24, 24, 27, 0.24), 0 0 0 2px var(--primary-crimson, #C1272D);
+  cursor: default;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.map-officer-card--expanded .map-officer-main {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.map-officer-card--expanded .map-officer-avatar {
+  width: 180px;
+  height: 180px;
+  border-width: 5px;
+  outline-width: 3px;
+  outline-color: var(--primary-crimson, #C1272D);
+  box-shadow: 0 8px 26px rgba(193, 39, 45, 0.35);
+}
+
+.map-officer-card--expanded .map-officer-info {
+  align-items: center;
+  text-align: center;
+  padding-right: 0;
+  gap: 5px;
+  width: 100%;
+}
+
+.map-officer-card--expanded .officer-role-pill {
+  align-self: center;
+  font-size: 0.74rem;
+  padding: 5px 14px;
+}
+
+.map-officer-card--expanded .officer-name {
+  font-size: 1.40rem;
+  font-weight: 800;
+  white-space: normal;
+  text-align: center;
+}
+
+.map-officer-card--expanded .map-officer-hometown {
+  font-size: 0.92rem;
+  color: #4A4641;
+  font-weight: 600;
+  text-align: center;
+}
+
+.map-officer-card--expanded .map-officer-major {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--text-muted, #71717A);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.map-officer-card--expanded .map-officer-bio {
+  display: block;
+  font-size: 0.90rem;
+  color: var(--text-body, #27272A);
+  line-height: 1.45;
+  border-top: 1px solid var(--border-card, #E4DDD3);
+  padding-top: 12px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  animation: fadeInDown 0.2s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close button on expanded card */
+.map-officer-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-card, #E4DDD3);
+  background: var(--bg-surface, #FFFFFF);
+  color: var(--text-muted, #71717A);
+  font-size: 20px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  padding: 0;
+  z-index: 10;
+}
+
+.map-officer-card--expanded .map-officer-close {
+  display: flex;
+}
+
+.map-officer-close:hover {
+  background-color: var(--primary-crimson, #C1272D);
+  color: #FFFFFF;
+  border-color: var(--primary-crimson, #C1272D);
+  transform: rotate(90deg);
+}
+
+/* Individual card adjustments when expanded to comfortably fit canvas */
+.map-officer-card--expanded[data-officer="zehou"] {
+  transform: translateY(-80px);
+}
+
+.map-officer-card--expanded[data-officer="weijin"] {
+  transform: translateY(-35px);
+}
+
+.map-officer-card--expanded[data-officer="rayson"],
+.map-officer-card--expanded[data-officer="rachel"] {
+  transform: translateY(-160px);
+}
+
+/* Canvas spotlight dimming for non-expanded cards */
+.map-canvas.has-expanded-card .map-officer-card:not(.map-officer-card--expanded) {
+  opacity: 0.32;
+  filter: grayscale(20%);
+}
+
+.map-canvas.has-expanded-card .map-officer-card:not(.map-officer-card--expanded):hover {
+  opacity: 0.85;
+  filter: none;
+}
+
+/* --------------------------------------------------------------------------
+   Individual card position anchors
+   -------------------------------------------------------------------------- */
+
+/* Left column (Peninsular west side) */
+[data-officer="siangjun"] { top: 3%;   left: 0.5%; }
+[data-officer="gin"]      { top: 19%;  left: 0.5%; }
+[data-officer="weijin"]   { top: 35%;  left: 0.5%; }
+[data-officer="zehou"]    { top: 51%;  left: 0.5%; }
+
+/* Bottom row (Johor / Singapore) */
+[data-officer="rayson"]   { top: 69%;  left: 19%; }
+[data-officer="rachel"]   { top: 69%;  left: 44%; }
+
+/* Right column (East Malaysia / Sabah) */
+[data-officer="kingston"] { top: 3%;   right: 1%; }
+
+/* --------------------------------------------------------------------------
+   Mobile fallback — shown only on narrow screens
+   -------------------------------------------------------------------------- */
+.map-mobile-list {
+  display: none;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* Mobile officer card (reuses existing .officer-card styles from sections.css) */
+.map-mobile-officer-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-mobile-officer-card img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 2px solid var(--border-card);
+}
+
+.map-mobile-officer-card .officer-name  { font-size: 1rem; font-weight: 800; margin: 0; }
+.map-mobile-officer-card .officer-major { font-size: 0.80rem; color: var(--text-muted); margin: 0; }
+.map-mobile-officer-card .officer-bio   { font-size: 0.82rem; color: var(--text-body); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+/* Tablet — shrink card sizes and tighten positions */
+@media screen and (max-width: 1100px) {
+  .map-officer-card {
+    max-width: 170px;
+    min-width: 145px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .map-officer-avatar { width: 40px; height: 40px; }
+  .map-officer-info .officer-name { font-size: 0.88rem; }
+  .map-officer-info .officer-role-pill { font-size: 0.62rem; padding: 2px 8px; }
+  .map-officer-hometown { font-size: 0.75rem; }
+
+  /* Expanded card on tablet */
+  .map-officer-card--expanded {
+    max-width: 270px;
+    min-width: 260px;
+    width: 265px;
+    padding: 16px 14px 14px;
+    gap: 10px;
+  }
+  .map-officer-card--expanded .map-officer-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .map-officer-card--expanded .officer-name {
+    font-size: 1.15rem;
+  }
+  .map-officer-card--expanded .map-officer-major {
+    font-size: 0.78rem;
+  }
+  .map-officer-card--expanded .map-officer-bio {
+    font-size: 0.82rem;
+    padding-top: 8px;
+  }
+}
+
+/* Mobile — hide canvas, show fallback list */
+@media screen and (max-width: 768px) {
+  .map-canvas { display: none; }
+  .map-mobile-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Very small screens — single column fallback */
+@media screen and (max-width: 480px) {
+  .map-mobile-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -6,6 +6,7 @@ import { $ } from '../utils/dom.js';
 import { initNavbar } from '../components/Navbar.js';
 import { initFAQAccordion } from '../components/FAQAccordion.js';
 import { initPhotoCarousel } from '../components/PhotoCarousel.js';
+import { initMalaysiaMap } from '../components/MalaysiaMap.js';
 import { submitContactMessage } from '../services/contactService.js';
 
 export function initHomePage() {
@@ -13,6 +14,7 @@ export function initHomePage() {
   initNavbar();
   initFAQAccordion();
   initPhotoCarousel();
+  initMalaysiaMap();
 
   // Contact form handling
   const contactForm = $('#contactForm');
