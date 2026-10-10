@@ -20,7 +20,7 @@ const OFFICER_STATE_MAP = {
   siangjun: ['penang'],
   gin:      ['penang'],
   weijin:   ['perak'],
-  zehou:    ['kualalumpur', 'selangor'],
+  zehou:    ['selangor', 'kualalumpur'],
   rayson:   ['johor'],
   rachel:   ['singapore'],
   kingston: ['sabah'],
@@ -103,6 +103,19 @@ export function initMalaysiaMap() {
   }
 
   /**
+   * Helper to activate a state polygon and bring it to the top of the states layer
+   * so its highlighted stroke is never painted over by sibling states
+   * @param {string} sid
+   */
+  function highlightState(sid) {
+    const el = document.getElementById(sid);
+    if (el) {
+      el.classList.add('map-state--active');
+      el.parentNode?.appendChild(el);
+    }
+  }
+
+  /**
    * Activate an officer:
    *  - Highlights their home state(s)
    *  - Highlights their leader line
@@ -117,10 +130,10 @@ export function initMalaysiaMap() {
     leaderLines.forEach((l)  => l.classList.remove('map-leader-line--active'));
     pins.forEach((p)         => p.classList.remove('map-pin--active'));
 
-    // Highlight state polygons
+    // Highlight state polygons and raise them to the top of the states layer
     const stateIds = OFFICER_STATE_MAP[officerId] ?? [];
     stateIds.forEach((sid) => {
-      document.getElementById(sid)?.classList.add('map-state--active');
+      highlightState(sid);
     });
 
     // Highlight officer card
@@ -189,10 +202,21 @@ export function initMalaysiaMap() {
    */
   function activateState(stateId) {
     clearAll();
-    document.getElementById(stateId)?.classList.add('map-state--active');
+    highlightState(stateId);
+    if (stateId === 'selangor') {
+      // Keep KL on top of Selangor so KL enclave remains crisp
+      const klEl = document.getElementById('kualalumpur');
+      if (klEl) klEl.parentNode?.appendChild(klEl);
+    }
 
     const officerIds = STATE_OFFICER_MAP[stateId] ?? [];
     officerIds.forEach((oid) => {
+      // Highlight any companion states for this officer (e.g. Ze Hou: selangor + kualalumpur)
+      const companionStateIds = OFFICER_STATE_MAP[oid] ?? [];
+      companionStateIds.forEach((sid) => {
+        highlightState(sid);
+      });
+
       canvas
         .querySelector(`[data-officer="${oid}"]`)
         ?.classList.add('map-officer-card--active');

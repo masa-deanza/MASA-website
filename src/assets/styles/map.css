@@ -62,6 +62,8 @@
   fill: #F4ECE1;
   stroke: #C8BFB3;
   stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
   cursor: pointer;
   transition: fill 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               stroke 0.22s cubic-bezier(0.16, 1, 0.3, 1),
@@ -76,6 +78,8 @@
   fill: var(--primary-crimson, #C1272D);
   stroke: #9E1B21;
   stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
   filter: drop-shadow(0 0 8px rgba(193, 39, 45, 0.35));
 }
 
