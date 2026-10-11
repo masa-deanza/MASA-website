@@ -17,16 +17,3 @@ export const $ = (selector, parent = document) => parent.querySelector(selector)
  * @returns {Element[]}
  */
 export const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
-
-/**
- * Event listener helper with safety check
- * @param {EventTarget} target
- * @param {string} event
- * @param {EventListenerOrEventListenerObject} handler
- * @param {boolean|AddEventListenerOptions} [options]
- */
-export const on = (target, event, handler, options) => {
-  if (target) {
-    target.addEventListener(event, handler, options);
-  }
-};

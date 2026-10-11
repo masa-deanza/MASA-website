@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://masa-deanza.github.io/MASA-website/sitemap.xml

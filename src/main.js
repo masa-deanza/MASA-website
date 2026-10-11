@@ -5,7 +5,7 @@
 
 import { initHomePage } from './pages/home.js';
 import { initPastEventsPage } from './pages/pastEvents.js';
-import { initGamesPage } from './pages/games.js?v=2.6';
+import { initGamesPage } from './pages/games.js';
 
 function bootstrap() {
   const path = window.location.pathname;
