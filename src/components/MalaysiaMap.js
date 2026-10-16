@@ -90,16 +90,21 @@ export function initMalaysiaMap() {
     animFrameId = requestAnimationFrame(tick);
   }
 
+  /** Remove active classes from all map elements */
+  function clearActiveClasses() {
+    officerCards.forEach((c) => c.classList.remove('map-officer-card--active'));
+    stateEls.forEach((s)     => s.classList.remove('map-state--active'));
+    leaderLines.forEach((l)  => l.classList.remove('map-leader-line--active'));
+    pins.forEach((p)         => p.classList.remove('map-pin--active'));
+  }
+
   /** Remove active classes (preserves highlight if a card is currently expanded) */
   function clearAll() {
     if (expandedOfficerId) {
       activateOfficer(expandedOfficerId);
       return;
     }
-    officerCards.forEach((c) => c.classList.remove('map-officer-card--active'));
-    stateEls.forEach((s)     => s.classList.remove('map-state--active'));
-    leaderLines.forEach((l)  => l.classList.remove('map-leader-line--active'));
-    pins.forEach((p)         => p.classList.remove('map-pin--active'));
+    clearActiveClasses();
   }
 
   /**
@@ -125,10 +130,7 @@ export function initMalaysiaMap() {
    */
   function activateOfficer(officerId) {
     // Clear all elements first
-    officerCards.forEach((c) => c.classList.remove('map-officer-card--active'));
-    stateEls.forEach((s)     => s.classList.remove('map-state--active'));
-    leaderLines.forEach((l)  => l.classList.remove('map-leader-line--active'));
-    pins.forEach((p)         => p.classList.remove('map-pin--active'));
+    clearActiveClasses();
 
     // Highlight state polygons and raise them to the top of the states layer
     const stateIds = OFFICER_STATE_MAP[officerId] ?? [];
@@ -201,7 +203,7 @@ export function initMalaysiaMap() {
    * @param {string} stateId
    */
   function activateState(stateId) {
-    clearAll();
+    clearActiveClasses();
     highlightState(stateId);
     if (stateId === 'selangor') {
       // Keep KL on top of Selangor so KL enclave remains crisp
@@ -289,6 +291,7 @@ export function initMalaysiaMap() {
       if (officerIds.length === 1) {
         expandOfficer(officerIds[0]);
       } else {
+        if (expandedOfficerId) collapseOfficer();
         activateState(stateId);
       }
     });
@@ -309,6 +312,7 @@ export function initMalaysiaMap() {
       if (officerIds.length === 1) {
         expandOfficer(officerIds[0]);
       } else {
+        if (expandedOfficerId) collapseOfficer();
         activateState(stateId);
       }
     });

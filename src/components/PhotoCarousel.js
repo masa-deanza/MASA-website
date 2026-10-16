@@ -91,7 +91,7 @@ export function initPhotoCarousel() {
     dots.forEach((dot, i) => {
       const isActive = i === currentIndex;
       dot.classList.toggle('active', isActive);
-      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      dot.setAttribute('aria-current', isActive ? 'true' : 'false');
     });
 
     // Update counter
@@ -103,9 +103,13 @@ export function initPhotoCarousel() {
   const nextSlide = () => goToSlide(currentIndex + 1);
   const prevSlide = () => goToSlide(currentIndex - 1);
 
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let isHovered = false;
+
   // Autoplay management
   const startAutoplay = () => {
     stopAutoplay();
+    if (reducedMotionQuery.matches) return;
     autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
   };
 
@@ -118,7 +122,9 @@ export function initPhotoCarousel() {
 
   const restartAutoplay = () => {
     stopAutoplay();
-    startAutoplay();
+    if (!isHovered && !carousel.contains(document.activeElement)) {
+      startAutoplay();
+    }
   };
 
   // Button controls
@@ -160,16 +166,28 @@ export function initPhotoCarousel() {
   });
 
   // Pause on hover or focus
-  carousel.addEventListener('mouseenter', stopAutoplay);
-  carousel.addEventListener('mouseleave', startAutoplay);
+  carousel.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopAutoplay();
+  });
+  carousel.addEventListener('mouseleave', () => {
+    isHovered = false;
+    if (!carousel.contains(document.activeElement)) {
+      startAutoplay();
+    }
+  });
   carousel.addEventListener('focusin', stopAutoplay);
-  carousel.addEventListener('focusout', startAutoplay);
+  carousel.addEventListener('focusout', (e) => {
+    if (!carousel.contains(e.relatedTarget) && !isHovered) {
+      startAutoplay();
+    }
+  });
 
   // Pause when page is hidden
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       stopAutoplay();
-    } else {
+    } else if (!isHovered && !carousel.contains(document.activeElement)) {
       startAutoplay();
     }
   });

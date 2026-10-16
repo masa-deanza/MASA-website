@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <g fill="none" stroke="#C1272D" stroke-width="1.2" opacity="0.55">
+    <!-- Outer tile frame -->
+    <rect x="1" y="1" width="58" height="58" rx="2" stroke="#E76F51" stroke-width="0.8" opacity="0.5" />
+    <!-- Corner arcs -->
+    <path d="M 0,15 A 15,15 0 0 0 15,0" />
+    <path d="M 45,0 A 15,15 0 0 0 60,15" />
+    <path d="M 60,45 A 15,15 0 0 0 45,60" />
+    <path d="M 15,60 A 15,15 0 0 0 0,45" />
+    <!-- Center Peranakan lotus/star motif -->
+    <polygon points="30,8 36,24 52,30 36,36 30,52 24,36 8,30 24,24" stroke="#C1272D" fill="#F4A261" fill-opacity="0.15" />
+    <polygon points="30,15 34,26 45,30 34,34 30,45 26,34 15,30 26,26" stroke="#E76F51" stroke-width="0.9" />
+    <circle cx="30" cy="30" r="4" fill="#C1272D" fill-opacity="0.25" stroke="#C1272D" stroke-width="1" />
+  </g>
+</svg>
+

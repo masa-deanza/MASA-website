@@ -3,17 +3,16 @@
  * Malaysian & Singaporean Association (MASA) at De Anza College
  */
 
-import { initHomePage } from './pages/home.js';
-import { initPastEventsPage } from './pages/pastEvents.js';
-import { initGamesPage } from './pages/games.js';
-
-function bootstrap() {
+async function bootstrap() {
   const path = window.location.pathname;
   if (path.includes('past-events') || path.includes('past-events.html')) {
+    const { initPastEventsPage } = await import('./pages/pastEvents.js');
     initPastEventsPage();
   } else if (path.includes('games') || path.includes('games.html')) {
+    const { initGamesPage } = await import('./pages/games.js');
     initGamesPage();
   } else {
+    const { initHomePage } = await import('./pages/home.js');
     initHomePage();
   }
 }

@@ -116,7 +116,8 @@ export function initGamesPage() {
   }
 
   function saveGameData() {
-    localStorage.setItem('masa_blackjack_bankroll', bankroll.toString());
+    const persistedBankroll = gameState === 'betting' ? bankroll + currentBet : bankroll;
+    localStorage.setItem('masa_blackjack_bankroll', persistedBankroll.toString());
     localStorage.setItem('masa_blackjack_last_bet', lastBet.toString());
     localStorage.setItem('masa_blackjack_stats', JSON.stringify(stats));
   }
@@ -402,10 +403,10 @@ export function initGamesPage() {
     }
 
     isDoubled = false;
-    deck = createDeck(4);
     playerHand = [];
     dealerHand = [];
     gameState = 'dealing';
+    saveGameData();
     updateUI();
 
     if (dealerCardsEl) dealerCardsEl.innerHTML = '';
@@ -624,7 +625,9 @@ export function initGamesPage() {
     // Check if player is completely out of chips
     if (bankroll === 0 && currentBet === 0) {
       setTimeout(() => {
-        setStatus('Out of chips! Click "Free Reload ($500)" to keep playing.', 'lose');
+        if (bankroll === 0 && currentBet === 0 && gameState === 'betting') {
+          setStatus('Out of chips! Click "Free Reload ($500)" to keep playing.', 'lose');
+        }
       }, 1000);
     }
   }
@@ -712,7 +715,7 @@ export function initGamesPage() {
       doubleDown();
     } else if (key === 'c' && gameState === 'betting' && currentBet > 0) {
       clearBet();
-    } else if (key === 'r' && gameState === 'betting' && lastBet > 0 && bankroll >= lastBet) {
+    } else if (key === 'r' && gameState === 'betting' && lastBet > 0 && (bankroll + currentBet) >= lastBet) {
       rebet();
     }
   });

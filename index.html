@@ -45,7 +45,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -208,8 +208,8 @@
             </h1>
 
             <p class="hero-lead">
-              (placeholder: We eat together, we transfer together. Malaysian and
-              Singaporean students at De Anza — everyone welcome.)
+              We eat together, we transfer together. Malaysian and Singaporean
+              students at De Anza — everyone welcome.
             </p>
 
             <div class="hero-cta-group">
@@ -306,11 +306,11 @@
               <div class="hero-skyline-backdrop" aria-hidden="true">
                 <img
                   src="src/assets/images/klcc-singapore-skyline-arch.png"
-                  alt="Petronas Twin Towers and Marina Bay Sands architectural backdrop"
+                  alt=""
                   class="hero-skyline-img"
                   width="2352"
                   height="1312"
-                  loading="eager"
+                  decoding="async"
                 />
               </div>
 
@@ -383,6 +383,8 @@
                           src="src/assets/images/carousel/masa-gathering-1.png"
                           alt="MASA Welcome Day and Community Gathering"
                           class="carousel-img"
+                          width="1022"
+                          height="600"
                           loading="eager"
                           style="display: block; object-position: center 35%"
                         />
@@ -401,6 +403,8 @@
                           src="src/assets/images/carousel/masa-gathering-2.png"
                           alt="MASA Members Evening Social and Meetup"
                           class="carousel-img"
+                          width="904"
+                          height="572"
                           loading="lazy"
                           style="display: block; object-position: center 30%"
                         />
@@ -414,23 +418,21 @@
                 <div class="carousel-footer">
                   <div
                     class="carousel-dots"
-                    role="tablist"
+                    role="group"
                     aria-label="Carousel navigation"
                   >
                     <button
                       class="carousel-dot active"
                       type="button"
-                      role="tab"
                       aria-label="Go to slide 1"
-                      aria-selected="true"
+                      aria-current="true"
                       data-slide="0"
                     ></button>
                     <button
                       class="carousel-dot"
                       type="button"
-                      role="tab"
                       aria-label="Go to slide 2"
-                      aria-selected="false"
+                      aria-current="false"
                       data-slide="1"
                     ></button>
                   </div>
@@ -450,9 +452,9 @@
           <div class="section-intro">
             <h2 class="section-heading">About De Anza MASA</h2>
             <p class="section-summary">
-              (placeholder: Student-led organization at De Anza College
-              connecting Malaysian, Singaporean, and all interested students
-              through food, culture, and transfer mentorship.)
+              Student-led organization at De Anza College connecting Malaysian,
+              Singaporean, and all interested students through food, culture,
+              and transfer mentorship.
             </p>
           </div>
 
@@ -485,7 +487,6 @@
       </section>
 
       <!-- EXECUTIVE TEAM SECTION — Interactive Map -->
-      <!-- EXECUTIVE TEAM SECTION — Interactive Map -->
       <section id="team" class="section section-team section-team-map">
         <div class="container-wide">
 
@@ -509,7 +510,7 @@
             <!-- Siang Jun — Penang -->
             <div class="map-officer-card" data-officer="siangjun" data-state="penang" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Siang Jun, ICC Representative, from Penang">
-              <button class="map-officer-close" aria-label="Close Siang Jun profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/sj.jpeg"
@@ -531,7 +532,7 @@
             <!-- Gin — Penang -->
             <div class="map-officer-card" data-officer="gin" data-state="penang" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Gin, Public Relations, from Penang">
-              <button class="map-officer-close" aria-label="Close Gin profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/gin.jpeg"
@@ -553,7 +554,7 @@
             <!-- Wei Jin — Perak / Ipoh -->
             <div class="map-officer-card" data-officer="weijin" data-state="perak" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Wei Jin, President, from Ipoh, Perak">
-              <button class="map-officer-close" aria-label="Close Wei Jin profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/wei-jin.jpeg"
@@ -575,7 +576,7 @@
             <!-- Ze Hou — Kuala Lumpur, Selangor -->
             <div class="map-officer-card" data-officer="zehou" data-state="kualalumpur" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Ze Hou, Event Coordinator, from Kuala Lumpur, Selangor">
-              <button class="map-officer-close" aria-label="Close Ze Hou profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/zhehou.jpeg"
@@ -597,7 +598,7 @@
             <!-- Rayson — Johor Bahru, Johor -->
             <div class="map-officer-card" data-officer="rayson" data-state="johor" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Rayson, Treasurer, from Johor Bahru, Johor">
-              <button class="map-officer-close" aria-label="Close Rayson profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/rayson.jpeg"
@@ -619,7 +620,7 @@
             <!-- Rachel — Singapore -->
             <div class="map-officer-card" data-officer="rachel" data-state="singapore" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Rachel, Vice President, from Singapore">
-              <button class="map-officer-close" aria-label="Close Rachel profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/rachel.jpeg"
@@ -641,7 +642,7 @@
             <!-- Kingston — Sabah -->
             <div class="map-officer-card" data-officer="kingston" data-state="sabah" tabindex="0" role="button" aria-expanded="false"
                  aria-label="Kingston, Secretary, from Sabah">
-              <button class="map-officer-close" aria-label="Close Kingston profile" type="button" tabindex="-1">&times;</button>
+              <span class="map-officer-close" aria-hidden="true" title="Close">&times;</span>
               <div class="map-officer-main">
                 <img
                   src="src/assets/images/officers/prince-of-sabah.jpeg"
@@ -755,7 +756,7 @@
           <div class="map-mobile-list" aria-label="Officer list">
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/sj.jpeg" alt="Siang Jun" loading="lazy" />
+              <img src="src/assets/images/officers/sj.jpeg" alt="Siang Jun" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">ICC Representative</span>
               <p class="officer-name">Siang Jun</p>
               <p class="officer-major">Electrical Engineering</p>
@@ -763,7 +764,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/gin.jpeg" alt="Gin" loading="lazy" />
+              <img src="src/assets/images/officers/gin.jpeg" alt="Gin" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">Public Relations</span>
               <p class="officer-name">Gin</p>
               <p class="officer-major">Design &amp; Marketing</p>
@@ -771,7 +772,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/wei-jin.jpeg" alt="Wei Jin" loading="lazy" />
+              <img src="src/assets/images/officers/wei-jin.jpeg" alt="Wei Jin" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">President</span>
               <p class="officer-name">Wei Jin</p>
               <p class="officer-major">Engineering Physics / Applied Physics</p>
@@ -779,7 +780,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/zhehou.jpeg" alt="Ze Hou" loading="lazy" />
+              <img src="src/assets/images/officers/zhehou.jpeg" alt="Ze Hou" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">Event Coordinator</span>
               <p class="officer-name">Ze Hou</p>
               <p class="officer-major">Economics</p>
@@ -787,7 +788,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/rayson.jpeg" alt="Rayson" loading="lazy" />
+              <img src="src/assets/images/officers/rayson.jpeg" alt="Rayson" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">Treasurer</span>
               <p class="officer-name">Rayson</p>
               <p class="officer-major">Economics</p>
@@ -795,7 +796,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/rachel.jpeg" alt="Rachel" loading="lazy" />
+              <img src="src/assets/images/officers/rachel.jpeg" alt="Rachel" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">Vice President</span>
               <p class="officer-name">Rachel</p>
               <p class="officer-major">Neuroscience and Statistics</p>
@@ -803,7 +804,7 @@
             </div>
 
             <div class="map-mobile-officer-card">
-              <img src="src/assets/images/officers/prince-of-sabah.jpeg" alt="Kingston" loading="lazy" />
+              <img src="src/assets/images/officers/prince-of-sabah.jpeg" alt="Kingston" width="72" height="72" loading="lazy" />
               <span class="officer-role-pill">Secretary</span>
               <p class="officer-name">Kingston</p>
               <p class="officer-major">Electrical Engineering and Computer Science</p>
@@ -814,7 +815,6 @@
 
         </div><!-- /.container-wide -->
       </section><!-- /#team -->
-      <!-- /#team -->
 
       <!-- UPCOMING EVENTS SECTION -->
       <section id="events" class="section section-events">
@@ -843,7 +843,7 @@
                 color: var(--text-body);
               "
             >
-              (placeholder: No upcoming events scheduled right now. Check
+              No upcoming events scheduled right now. Check
               <a
                 href="https://www.instagram.com/deanza.masa/"
                 target="_blank"
@@ -855,7 +855,7 @@
                 "
                 >@deanza.masa</a
               >
-              on Instagram for our next meeting and food run announcements.)
+              on Instagram for our next meeting and food run announcements.
             </p>
           </div>
 

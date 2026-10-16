@@ -90,4 +90,10 @@ export function initNavbar() {
   drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mobileDrawer?.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
 }
